@@ -21,9 +21,26 @@ module.exports = yeoman.generators.Base.extend({
   askFor: function() {
     var done = this.async();
     this.log(yosay('Welcome to the wondrous ' + chalk.red('Ambox') + ' generator!'));
-    var prompts = [];
+    var prompts = [{
+      type: 'checkbox',
+      name: 'features',
+      message: 'What more would you like?',
+      choices: [
+        {
+          name: 'Bower',
+          value: 'includeBower',
+          checked: true
+        },
+        {
+          name: 'Component',
+          value: 'includeComponent',
+          checked: false
+        }
+      ]
+    }];
     this.prompt(prompts, function (answers) {
-      var features = answers.features;
+      this.includeBower = this.hasFeature(answers.features, 'includeBower');
+      this.includeComponent = this.hasFeature(answers.features, 'includeComponent');
       done();
     }.bind(this));
   },
@@ -45,10 +62,18 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     bower: function() {
-      this.log(chalk.green(' ✓', chalk.white('Bower')));
-      this.template('_component.json', 'component.json', this);
-      this.template('_bower.json', 'bower.json', this);
-      this.copy('bower.rc', '.bowerrc');
+      if (this.includeBower) {
+        this.log(chalk.green(' ✓', chalk.white('Bower')));
+        this.template('_bower.json', 'bower.json', this);
+        this.copy('bower.rc', '.bowerrc');
+      }
+    },
+
+    component: function() {
+      if (this.includeComponent) {
+        this.log(chalk.green(' ✓', chalk.white('Component')));
+        this.template('_component.json', 'component.json', this);
+      }
     },
     
     grunt: function() {
@@ -121,7 +146,7 @@ module.exports = yeoman.generators.Base.extend({
 
   install: function() {
     this.hasCfg('component.json') && this.spawnCommand('component', ['install']);
+    this.hasCfg('bower.json') && this.bowerInstall();
     this.installDependencies();
-    this.bowerInstall();
   }
 });
