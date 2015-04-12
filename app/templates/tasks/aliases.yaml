@@ -3,7 +3,8 @@ default:
 
 server:
   - 'static'
-  - 'concurrent:server'
+  - 'exec:launch'
+  - 'watch'
 
 static:
   - 'clean:scripts'

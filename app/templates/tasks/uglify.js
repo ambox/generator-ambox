@@ -6,8 +6,8 @@ module.exports = function (grunt) {
 	return {
 		aids: {
 			files: {
-				'<%= scaffold.static %>/scripts/vendors/modernizr.min.js': [
-					'<%= scaffold.source %>/scripts/vendors/modernizr/modernizr.js'
+				'<%= scaffold.static %>/scripts/modernizr.min.js': [
+					'<%= scaffold.vendors %>/modernizr/modernizr.js'
 				]
 			}
 		},

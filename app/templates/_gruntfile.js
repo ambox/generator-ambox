@@ -12,18 +12,20 @@ module.exports = function (grunt) {
 	require('load-grunt-tasks')(grunt);
 	require('time-grunt')(grunt);
 
-	function execute(path, gruntConfig, config) {
+	function execute(path, gruntConfig, vendors, pack) {
+		pack.scaffold.vendors = vendors;
 		gruntConfig(grunt, {
-			data: config,
+			data: pack,
 			configPath: path.join(process.cwd(), 'tasks'),
 			loadGruntTasks: {
-				config: config,
+				config: pack,
 				scope: 'devDependencies'
 			}
 		});
 	}
 
 	execute(require('path'), require('load-grunt-config'),
+		grunt.file.readJSON('.bowerrc').directory,
 		grunt.file.readJSON('package.json')
 	);
 };

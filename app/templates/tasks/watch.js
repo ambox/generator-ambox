@@ -17,7 +17,7 @@ module.exports = function (grunt) {
 			spawn: false
 		},
 		scripts: {
-			files: ['<%= scaffold.source %>/scripts/**/*.js', '!<%= scaffold.source %>/scripts/vendors/**/*.js'],
+			files: ['<%= scaffold.source %>/scripts/**/*.js', '!<%= scaffold.vendors %>/**/*.js'],
 			tasks: ['scripts']
 		},
 		styles: {

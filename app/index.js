@@ -106,7 +106,6 @@ module.exports = yeoman.generators.Base.extend({
       this.copy('tasks/jade.js', 'tasks/jade.js');
       this.copy('tasks/jshint.js', 'tasks/jshint.js');
       this.copy('tasks/newer.js', 'tasks/newer.js');
-      this.copy('tasks/nodemon.js', 'tasks/nodemon.js');
       this.copy('tasks/processhtml.js', 'tasks/processhtml.js');
       this.copy('tasks/sass.js', 'tasks/sass.js');
       this.copy('tasks/svgmin.js', 'tasks/svgmin.js');

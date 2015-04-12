@@ -4,7 +4,6 @@ module.exports = function (grunt) {
 	// Run grunt tasks concurrently.
 	// @see https://github.com/sindresorhus/grunt-concurrent
 	return {
-		images: ['newer:imagemin', 'newer:svgmin'],
-		server: ['watch', 'nodemon']
+		images: ['newer:imagemin', 'newer:svgmin']
 	};
 };

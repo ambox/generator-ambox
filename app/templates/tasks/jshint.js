@@ -34,7 +34,7 @@ module.exports = function (grunt) {
 		},
 		static: [
 			'<%= scaffold.source %>/scripts/**/*.js',
-			'!<%= scaffold.source %>/scripts/vendors/**/*.js'
+			'!<%= scaffold.vendors %>/**/*.js'
 		]
 	}
 };

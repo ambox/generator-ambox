@@ -6,7 +6,7 @@ module.exports = function (grunt) {
 	return {
 		static: {
 			options: {
-				includePaths: ['<%= scaffold.static %>/scripts/vendors']
+				includePaths: ['<%= scaffold.vendors %>']
 			},
 			files: {
 				'<%= scaffold.source %>/styles/app.css': [
