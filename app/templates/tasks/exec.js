@@ -10,7 +10,7 @@ module.exports = function (grunt) {
 				'webbrowser.open("http://" + socket.gethostbyname(socket.gethostname()) + os.path.join(',
 					'os.path.abspath(".").replace(',
 						'os.path.expanduser("~/Sites"), "/~" + getpass.getuser()',
-					'), "client/index.html?debug=3"))',
+					'), "<%= scaffold.static %>/index.html?debug=3"))',
 			'\');'
 		].join(' ')
 	};
