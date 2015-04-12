@@ -1,0 +1,8 @@
+{
+	"name": "<%= _.slugify(_.humanize(appname)) %>",
+	"description": "<%= pkg.description %>",
+	"version": "0.0.0",
+	"dependencies": {
+		"modernizr": "Modernizr/Modernizr#2.8.3"
+	}
+}

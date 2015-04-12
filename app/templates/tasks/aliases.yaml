@@ -1,0 +1,36 @@
+default:
+  - 'static'
+
+server:
+  - 'static'
+  - 'concurrent:server'
+
+static:
+  - 'clean:scripts'
+  - 'clean:styles'
+  - 'clean:images'
+  - 'scripts'
+  - 'styles'
+  - 'images'
+  - 'markup'
+
+scripts:
+  - 'jshint'
+  - 'uglify:aids'
+  - 'browserify'
+  - 'uglify:boot'
+  - 'clean:tmp'
+
+styles:
+  - 'sass'
+  - 'autoprefixer'
+  - 'cssmin'
+
+images:
+  - 'concurrent:images'
+
+markup:
+  - 'jade:index'
+  - 'newer:copy:static'
+  - 'processhtml'
+  - 'htmlcompressor'

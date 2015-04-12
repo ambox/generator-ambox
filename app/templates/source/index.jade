@@ -1,0 +1,23 @@
+doctype
+html.no-js(lang='pt')
+	head
+		meta(charset='utf-8')
+
+		title <%= appname %>
+		
+		// build:css styles/app.min.css
+		link(rel='stylesheet', href='styles/app.css')
+		// /build
+		
+		// build:js scripts/vendors/modernizr.min.js
+		script(src='scripts/vendors/modernizr/modernizr.js')
+		// /build
+
+	body
+		//- Application
+		div.app
+	
+		//- Behaviors
+		// build:js scripts/boot.min.js
+		script(src='scripts/boot.bundle.js')
+		// /build
