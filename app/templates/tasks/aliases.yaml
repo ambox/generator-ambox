@@ -16,8 +16,8 @@ static:
   - 'markup'
 
 scripts:
-  - 'jshint'
-  - 'uglify:aids'
+  - 'jshint'<% if (hasHTML5Feat) { %>
+  - 'uglify:aids'<% } %>
   - 'browserify'
   - 'uglify:boot'
   - 'clean:tmp'

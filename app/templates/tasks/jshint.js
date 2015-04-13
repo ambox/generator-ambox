@@ -9,8 +9,8 @@ module.exports = function (grunt) {
 	// @see https://github.com/gruntjs/grunt-contrib-jshint
 	return {
 		options: {
-			ignores: ['node_modules', '<%= scaffold.source %>/scripts/{,*/}*.bundle.js'],
-			predef: ['require', 'define', 'Modernizr'],
+			ignores: ['node_modules', '<%%= scaffold.source %>/scripts/{,*/}*.bundle.js'],
+			predef: ['require', 'define'<% if (includeModernizr) { %>, 'Modernizr'<% } %>],
 			reporter: stylish,
 			browserify: true,
 			quotmark: true,
@@ -33,8 +33,8 @@ module.exports = function (grunt) {
 			trailing: true
 		},
 		static: [
-			'<%= scaffold.source %>/scripts/**/*.js',
-			'!<%= scaffold.vendors %>/**/*.js'
+			'<%%= scaffold.source %>/scripts/**/*.js',
+			'!<%%= scaffold.vendors %>/**/*.js'
 		]
 	}
 };

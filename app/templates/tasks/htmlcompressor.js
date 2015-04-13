@@ -7,6 +7,7 @@ module.exports = function (grunt) {
 	return {
 		options: {
 			type: 'html',
+			preserveSsi: true,
 			preserveServerScript: true
 		},
 		static: {

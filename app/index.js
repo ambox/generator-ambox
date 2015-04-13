@@ -21,26 +21,70 @@ module.exports = yeoman.generators.Base.extend({
   askFor: function() {
     var done = this.async();
     this.log(yosay('Welcome to the wondrous ' + chalk.red('Ambox') + ' generator!'));
-    var prompts = [{
-      type: 'checkbox',
-      name: 'features',
-      message: 'What more would you like?',
-      choices: [
-        {
-          name: 'Bower',
-          value: 'includeBower',
-          checked: true
-        },
-        {
-          name: 'Component',
-          value: 'includeComponent',
-          checked: false
-        }
-      ]
-    }];
-    this.prompt(prompts, function (answers) {
+    var prompts = [
+      {
+        type: 'checkbox',
+        name: 'features',
+        message: 'What more would you like?',
+        choices: [
+          {
+            name: 'Bower',
+            value: 'includeBower',
+            checked: true
+          },
+          {
+            name: 'Component',
+            value: 'includeComponent',
+            checked: false
+          },
+          {
+            name: 'Modernizr',
+            value: 'includeModernizr',
+            checked: true
+          },
+          {
+            name: 'jQuery',
+            value: 'includejQuery',
+            checked: true
+          }
+        ]
+      },
+      {
+        type: 'confirm',
+        name: 'HTML5Shiv',
+        value: 'includeHTML5Shiv',
+        message: 'Would you like to use a crossbrowser workaround to ' + chalk.red('HTML5') + '?',
+        when: function(answers) {
+          return !this.hasFeature(answers.features, 'includeModernizr');
+        }.bind(this)
+      },
+      {
+        type: 'confirm',
+        name: 'Sizzle',
+        value: 'includeSizzle',
+        message: 'Would you like to use a pure-JavaScript CSS selector engine?',
+        when: function(answers) {
+          return !this.hasFeature(answers.features, 'includejQuery');
+        }.bind(this)
+      }
+    ];
+    this.prompt(prompts, function(answers) {
+      // Package managers
       this.includeBower = this.hasFeature(answers.features, 'includeBower');
       this.includeComponent = this.hasFeature(answers.features, 'includeComponent');
+      
+      // HTML features
+      this.includeModernizr = this.hasFeature(answers.features, 'includeModernizr');
+      this.includeHTML5Shiv = answers.HTML5Shiv;
+      this.hasHTML5Feat = this.includeModernizr || this.includeHTML5Shiv;
+
+      // JS features
+      this.includejQuery = this.hasFeature(answers.features, 'includejQuery');
+      this.includeSizzle = answers.Sizzle;
+      this.hasJSFeat = this.includejQuery || this.includeSizzle;
+
+      // Features
+      this.hasFeat = this.hasHTML5Feat || this.hasJSFeat;
       done();
     }.bind(this));
   },
@@ -129,12 +173,12 @@ module.exports = yeoman.generators.Base.extend({
       this.copy('tasks/htmlcompressor.js', 'tasks/htmlcompressor.js');
       this.copy('tasks/imagemin.js', 'tasks/imagemin.js');
       this.copy('tasks/jade.js', 'tasks/jade.js');
-      this.copy('tasks/jshint.js', 'tasks/jshint.js');
+      this.template('tasks/jshint.js', 'tasks/jshint.js');
       this.copy('tasks/newer.js', 'tasks/newer.js');
       this.copy('tasks/processhtml.js', 'tasks/processhtml.js');
       this.copy('tasks/sass.js', 'tasks/sass.js');
       this.copy('tasks/svgmin.js', 'tasks/svgmin.js');
-      this.copy('tasks/uglify.js', 'tasks/uglify.js');
+      this.template('tasks/uglify.js', 'tasks/uglify.js');
       this.copy('tasks/watch.js', 'tasks/watch.js');
       this.copy('tasks/aliases.yaml', 'tasks/aliases.yaml');
     },

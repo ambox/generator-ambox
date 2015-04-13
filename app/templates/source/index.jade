@@ -1,18 +1,24 @@
 doctype
-html.no-js(lang='pt')
+html<% if (includeModernizr) { %>.no-js<% } %>(lang='pt')
 	head
 		meta(charset='utf-8')
+		meta(name="viewport", content="width=device-width")
 
 		title <%= appname %>
 		
 		// build:css styles/app.min.css
 		link(rel='stylesheet', href='styles/app.css')
 		// /build
-		
+		<% if (includeModernizr) { %>
 		// build:js scripts/modernizr.min.js
 		script(src='scripts/vendors/modernizr/modernizr.js')
+		// /build<% } else { if (includeHTML5Shiv) { %>
+		<!--[if lt IE 9]>
+		// build:js scripts/html5shiv.min.js
+		script(src='scripts/vendors/html5shiv/dist/html5shiv.js')
 		// /build
-
+		<![endif]-->
+		<% }} %>
 	body
 		//- Application
 		div.app
