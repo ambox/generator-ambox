@@ -37,6 +37,8 @@ Finally, initiate the generator:
 yo ambox
 ```
 
+### Installing manually
+
 If you want to hack on the generator itself, then clone this repo and use npm to link it.
 
 ```bash
