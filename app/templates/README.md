@@ -15,7 +15,7 @@ version <%= pkg.version %>.
 
 ## Build & development
 
-Run `grunt` for building and `grunt serve` for preview.
+Run `grunt` for building and `grunt server` for preview.
 
 
 ## Testing
