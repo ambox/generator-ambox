@@ -46,7 +46,6 @@ Running `grunt test` will run the unit tests with karma.
 * [grunt-exec][grunt-exec]
 * [grunt-htmlcompressor][grunt-htmlcompressor]
 * [grunt-newer][grunt-newer]
-* [grunt-open][grunt-open]
 * [grunt-processhtml][grunt-processhtml]
 * [grunt-sass][grunt-sass]
 * [grunt-svgmin][grunt-svgmin]
@@ -86,7 +85,6 @@ Running `grunt test` will run the unit tests with karma.
 [grunt-exec]: http://npmjs.org/package/grunt-exec "Getting started"
 [grunt-htmlcompressor]: http://npmjs.org/package/grunt-htmlcompressor "Getting started"
 [grunt-newer]: http://npmjs.org/package/grunt-newer "Getting started"
-[grunt-open]: http://npmjs.org/package/grunt-open "Getting started"
 [grunt-processhtml]: http://npmjs.org/package/grunt-processhtml "Getting started"
 [grunt-sass]: http://npmjs.org/package/grunt-sass "Getting started"
 [grunt-svgmin]: http://npmjs.org/package/grunt-svgmin "Getting started"

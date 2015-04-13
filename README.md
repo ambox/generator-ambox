@@ -31,12 +31,6 @@ To install generator-ambox from npm, run:
 npm install -g generator-ambox
 ```
 
-Finally, initiate the generator:
-
-```bash
-yo ambox
-```
-
 ### Installing manually
 
 If you want to hack on the generator itself, then clone this repo and use npm to link it.
@@ -45,6 +39,14 @@ If you want to hack on the generator itself, then clone this repo and use npm to
 git clone https://github.com/ambox/generator-ambox.git
 cd generator-ambox
 npm link
+```
+
+### Usage
+
+Finally, initiate the generator:
+
+```bash
+yo ambox
 ```
 
 ### Uninstalling

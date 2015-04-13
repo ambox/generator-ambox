@@ -10,7 +10,7 @@ module.exports = function (grunt) {
 	return {
 		options: {
 			ignores: ['node_modules', '<%%= scaffold.source %>/scripts/{,*/}*.bundle.js'],
-			predef: ['require', 'define'<% if (includeModernizr) { %>, 'Modernizr'<% } %>],
+			predef: ['require', 'define'<% if (includeModernizr) { %>, 'Modernizr'<% } else { if (includeHTML5Shiv) { %>, 'html5'<% }} %>],
 			reporter: stylish,
 			browserify: true,
 			quotmark: true,
