@@ -36,7 +36,7 @@ npm install -g generator-ambox
 If you want to hack on the generator itself, then clone this repo and use npm to link it.
 
 ```bash
-git clone https://github.com/ambox/generator-ambox.git
+git clone https://github.com/ambox/generator-ambox.git && npm install
 cd generator-ambox
 npm link
 ```
