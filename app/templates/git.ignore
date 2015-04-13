@@ -43,14 +43,14 @@ Session.vim
 !.jshintrc
 !.jscs
 !.editorconfig
+!.gitattributes
+!.gitmodules
 !.gitignore
+!.gitkeep
 !.bowerrc
 !.npmignore
 !.npmrc
 !.travis.yml
-!.gitattributes
-!.gitmodules
-!.gitkeep
 *~
 *#*
 

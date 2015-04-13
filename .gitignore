@@ -19,8 +19,10 @@ Session.vim
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .*
 !.gitattributes
-!.editorconfig
+!.gitmodules
 !.gitignore
+!.gitkeep
+!.editorconfig
 !.jshintrc
 !.jscs.json
 !.bowerrc
