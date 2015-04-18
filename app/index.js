@@ -38,6 +38,11 @@ module.exports = yeoman.generators.Base.extend({
             checked: false
           },
           {
+            name: 'Theme structure',
+            value: 'includeTheme',
+            checked: true
+          },
+          {
             name: 'Modernizr',
             value: 'includeModernizr',
             checked: true
@@ -77,6 +82,9 @@ module.exports = yeoman.generators.Base.extend({
       this.includeModernizr = this.hasFeature(answers.features, 'includeModernizr');
       this.includeHTML5Shiv = answers.HTML5Shiv;
       this.hasHTML5Feat = this.includeModernizr || this.includeHTML5Shiv;
+
+      // CSS features
+      this.includeTheme = this.hasFeature(answers.features, 'includeTheme');
 
       // JS features
       this.includejQuery = this.hasFeature(answers.features, 'includejQuery');
@@ -137,18 +145,20 @@ module.exports = yeoman.generators.Base.extend({
 
     bem: function () {
       this.log(chalk.green('\n ✓', chalk.white('BEM')));
-      this.copy('source/styles/env/_Mixins.sass', 'source/styles/env/_Mixins.sass');
       this.copy('source/styles/env/_Reset.sass', 'source/styles/env/_Reset.sass');
+      this.copy('source/styles/env/_Mixins.sass', 'source/styles/env/_Mixins.sass');
       this.copy('source/styles/env/_Vars.sass', 'source/styles/env/_Vars.sass');
-      this.copy('source/styles/theme/_Animations.sass', 'source/styles/theme/_Animations.sass');
-      this.copy('source/styles/theme/_Breakpoints.sass', 'source/styles/theme/_Breakpoints.sass');
-      this.copy('source/styles/theme/_Elements.sass', 'source/styles/theme/_Elements.sass');
-      this.copy('source/styles/theme/_Fonts.sass', 'source/styles/theme/_Fonts.sass');
-      this.copy('source/styles/theme/_Layout.sass', 'source/styles/theme/_Layout.sass');
-      this.copy('source/styles/theme/_Modules.sass', 'source/styles/theme/_Modules.sass');
-      this.copy('source/styles/theme/_States.sass', 'source/styles/theme/_States.sass');
-      this.copy('source/styles/theme/_Vars.sass', 'source/styles/theme/_Vars.sass');
-      this.copy('source/styles/app.sass', 'source/styles/app.sass');
+      this.template('source/styles/app.sass', 'source/styles/app.sass');
+      if (this.includeTheme) {
+        this.copy('source/styles/theme/_Animations.sass', 'source/styles/theme/_Animations.sass');
+        this.copy('source/styles/theme/_Breakpoints.sass', 'source/styles/theme/_Breakpoints.sass');
+        this.copy('source/styles/theme/_Elements.sass', 'source/styles/theme/_Elements.sass');
+        this.copy('source/styles/theme/_Fonts.sass', 'source/styles/theme/_Fonts.sass');
+        this.copy('source/styles/theme/_Layout.sass', 'source/styles/theme/_Layout.sass');
+        this.copy('source/styles/theme/_Modules.sass', 'source/styles/theme/_Modules.sass');
+        this.copy('source/styles/theme/_States.sass', 'source/styles/theme/_States.sass');
+        this.copy('source/styles/theme/_Vars.sass', 'source/styles/theme/_Vars.sass');
+      }
     },
 
     images: function() {
