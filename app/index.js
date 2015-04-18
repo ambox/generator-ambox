@@ -42,11 +42,6 @@ module.exports = yeoman.generators.Base.extend({
             value: 'includeJade',
             checked: true
           },
-          {// N/A yet
-            name: 'Sass',
-            value: 'includeSass',
-            checked: true
-          },
           {
             name: 'Theme structure',
             value: 'includeTheme',
@@ -89,13 +84,13 @@ module.exports = yeoman.generators.Base.extend({
       this.includeComponent = this.hasFeature(answers.features, 'includeComponent');
       
       // HTML features
-      this.includeJade = this.hasFeature(answers.features, 'includeJade');// N/A yet
+      this.includeJade = this.hasFeature(answers.features, 'includeJade');
       this.includeModernizr = this.hasFeature(answers.features, 'includeModernizr');
       this.includeHTML5Shiv = answers.HTML5Shiv;
       this.hasHTML5Feat = this.includeModernizr || this.includeHTML5Shiv;
 
       // CSS features
-      this.includeSass = this.hasFeature(answers.features, 'includeSass');// N/A yet
+      // this.includeSass = this.hasFeature(answers.features, 'includeSass');// N/A yet
       this.includeTheme = this.hasFeature(answers.features, 'includeTheme');
 
       // JS features
