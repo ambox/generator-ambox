@@ -1,6 +1,9 @@
 # <%= _.slugify(_.humanize(appname)) %>
 > <%= pkg.description %>
 
+[![dependencies status][david_dependencies_status_image]][david_dependencies_status_url] 
+[![devDependency status][david_devdependencies_status_image]][david_devdependencies_status_url] 
+
 <!-- david dependencies -->
 [david_dependencies_status_image]: https://david-dm.org/ambox/generator-ambox.png?theme=shields.io
 [david_dependencies_status_url]: https://david-dm.org/ambox/generator-ambox "dependencies status"
