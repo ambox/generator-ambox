@@ -1,7 +1,5 @@
 {
 	"name": "<%= _.slugify(_.humanize(appname)) %>",
-	"description": "<%= pkg.description %>",
-	"version": "0.0.0",
 	"private": true,
 	"dependencies": {
 		"purecss": "yahoo/pure#0.6.0"<% if (hasFeat) { %>,<% } if (includeModernizr) { %>
