@@ -192,12 +192,12 @@ module.exports = yeoman.generators.Base.extend({
       this.copy('tasks/copy.js', 'tasks/copy.js');
       this.copy('tasks/cssmin.js', 'tasks/cssmin.js');
       this.copy('tasks/exec.js', 'tasks/exec.js');
-      this.copy('tasks/htmlcompressor.js', 'tasks/htmlcompressor.js');
       this.copy('tasks/imagemin.js', 'tasks/imagemin.js');
+      this.copy('tasks/htmlcompressor.js', 'tasks/htmlcompressor.js');
       this.includeJade && this.copy('tasks/jade.js', 'tasks/jade.js');
+      this.template('tasks/processhtml.js', 'tasks/processhtml.js');
       this.template('tasks/jshint.js', 'tasks/jshint.js');
       this.copy('tasks/newer.js', 'tasks/newer.js');
-      this.copy('tasks/processhtml.js', 'tasks/processhtml.js');
       this.copy('tasks/sass.js', 'tasks/sass.js');
       this.copy('tasks/svgmin.js', 'tasks/svgmin.js');
       this.template('tasks/uglify.js', 'tasks/uglify.js');

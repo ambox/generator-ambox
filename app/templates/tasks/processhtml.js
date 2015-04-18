@@ -11,8 +11,9 @@ module.exports = function (grunt) {
 		},
 		index: {
 			files: {
-				'<%= scaffold.static %>/index.html': [
-					'<%= scaffold.static %>/index.html'
+				'<%%= scaffold.static %>/index.html': [<% if (includeJade) { %>
+					'<%%= scaffold.static %>/index.html'<% } else { %>
+					'<%%= scaffold.source %>/index.html'<% } %>
 				]
 			}
 		}

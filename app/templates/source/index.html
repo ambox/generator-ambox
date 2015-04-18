@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html<% if (includeModernizr) { %>class="no-js"<% } %> lang="pt">
+<html <% if (includeModernizr) { %>class="no-js"<% } %> lang="pt">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title><%= appname %></title>
-    <!-- build:css styles/app.min.css-->
+    <!-- build:css styles/app.min.css -->
     <link rel="stylesheet" href="styles/app.css">
-    <!-- /build--><% if (includeModernizr) { %>
-    <!-- build:js scripts/modernizr.min.js-->
+    <!-- /build --><% if (includeModernizr) { %>
+    <!-- build:js scripts/modernizr.min.js -->
     <script src="scripts/vendors/modernizr/modernizr.js"></script>
-    <!-- /build<% } else { if (includeHTML5Shiv) { %>--><!--[if lt IE 9]>
-    <!-- build:js scripts/html5shiv.min.js-->
+    <!-- /build --><% } else { if (includeHTML5Shiv) { %><!--[if lt IE 9]>
+    <!-- build:js scripts/html5shiv.min.js -->
     <script src="scripts/vendors/html5shiv/dist/html5shiv.js"></script>
-    <!-- /build--><![endif]-->
+    <!-- /build --><![endif]-->
     <% }} %>
   </head>
   <body>
     <div class="app"></div>
-    <!-- build:js scripts/boot.min.js-->
+    <!-- build:js scripts/boot.min.js -->
     <script src="scripts/boot.bundle.js"></script>
-    <!-- /build-->
+    <!-- /build -->
   </body>
 </html>
