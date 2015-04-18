@@ -38,6 +38,16 @@ module.exports = yeoman.generators.Base.extend({
             checked: false
           },
           {
+            name: 'Jade',
+            value: 'includeJade',
+            checked: true
+          },
+          {// N/A yet
+            name: 'Sass',
+            value: 'includeSass',
+            checked: true
+          },
+          {
             name: 'Theme structure',
             value: 'includeTheme',
             checked: true
@@ -79,11 +89,13 @@ module.exports = yeoman.generators.Base.extend({
       this.includeComponent = this.hasFeature(answers.features, 'includeComponent');
       
       // HTML features
+      this.includeJade = this.hasFeature(answers.features, 'includeJade');// N/A yet
       this.includeModernizr = this.hasFeature(answers.features, 'includeModernizr');
       this.includeHTML5Shiv = answers.HTML5Shiv;
       this.hasHTML5Feat = this.includeModernizr || this.includeHTML5Shiv;
 
       // CSS features
+      this.includeSass = this.hasFeature(answers.features, 'includeSass');// N/A yet
       this.includeTheme = this.hasFeature(answers.features, 'includeTheme');
 
       // JS features
@@ -182,7 +194,7 @@ module.exports = yeoman.generators.Base.extend({
       this.copy('tasks/exec.js', 'tasks/exec.js');
       this.copy('tasks/htmlcompressor.js', 'tasks/htmlcompressor.js');
       this.copy('tasks/imagemin.js', 'tasks/imagemin.js');
-      this.copy('tasks/jade.js', 'tasks/jade.js');
+      this.includeJade && this.copy('tasks/jade.js', 'tasks/jade.js');
       this.template('tasks/jshint.js', 'tasks/jshint.js');
       this.copy('tasks/newer.js', 'tasks/newer.js');
       this.copy('tasks/processhtml.js', 'tasks/processhtml.js');
@@ -194,7 +206,8 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     writeIndex: function() {
-      this.template('source/index.jade', 'source/index.jade', this);
+      if (this.includeJade) this.template('source/index.jade', 'source/index.jade', this);
+      else this.template('source/index.html', 'source/index.html', this);
     }
   },
 

@@ -30,8 +30,8 @@ styles:
 images:
   - 'concurrent:images'
 
-markup:
-  - 'jade:index'
+markup:<% if (includeJade) { %>
+  - 'jade:index'<% } %>
   - 'newer:copy:static'
   - 'processhtml'
   - 'htmlcompressor'
