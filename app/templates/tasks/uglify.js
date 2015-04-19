@@ -15,6 +15,10 @@ module.exports = function (grunt) {
 			}
 		},<% } %>
 		boot: {
+			options: {
+				mangle: false,
+				sourceMap: '<%= scaffold.static %>/scripts/boot.min.map'
+			},
 			files: {
 				'<%%= scaffold.static %>/scripts/boot.min.js': [
 					'<%%= scaffold.source %>/scripts/boot.bundle.js'
