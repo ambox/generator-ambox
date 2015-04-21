@@ -90,7 +90,6 @@ module.exports = yeoman.generators.Base.extend({
       this.hasHTML5Feat = this.includeModernizr || this.includeHTML5Shiv;
 
       // CSS features
-      // this.includeSass = this.hasFeature(answers.features, 'includeSass');// N/A yet
       this.includeTheme = this.hasFeature(answers.features, 'includeTheme');
 
       // JS features
@@ -123,7 +122,7 @@ module.exports = yeoman.generators.Base.extend({
     bower: function() {
       if (this.includeBower) {
         this.log(chalk.green(' ✓', chalk.white('Bower')));
-        this.template('_bower.json', 'bower.json', this);
+        this.template('_bower.json', 'bower.json');
         this.copy('bower.rc', '.bowerrc');
       }
     },
@@ -131,7 +130,7 @@ module.exports = yeoman.generators.Base.extend({
     component: function() {
       if (this.includeComponent) {
         this.log(chalk.green(' ✓', chalk.white('Component')));
-        this.template('_component.json', 'component.json', this);
+        this.template('_component.json', 'component.json');
       }
     },
     
@@ -142,7 +141,7 @@ module.exports = yeoman.generators.Base.extend({
 
     npm: function() {
       this.log(chalk.green('\n ✓', chalk.white('NPM')));
-      this.template('_package.json', 'package.json', this);
+      this.template('_package.json', 'package.json');
     },
     
     git: function() {
@@ -201,8 +200,8 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     writeIndex: function() {
-      if (this.includeJade) this.template('source/index.jade', 'source/index.jade', this);
-      else this.template('source/index.html', 'source/index.html', this);
+      if (this.includeJade) this.template('source/index.jade', 'source/index.jade');
+      else this.template('source/index.html', 'source/index.html');
     }
   },
 
