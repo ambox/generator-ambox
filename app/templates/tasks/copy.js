@@ -12,7 +12,7 @@ module.exports = function (grunt) {
 				dest: '<%= scaffold.static %>',
 				src: [
 					'index.html',
-					'views/**/*.html',
+					'views/**/*.{html,swf}',
 					'*.{ico,png,txt}',
 					'images/**/*.webp',
 					'styles/typography/**/*.*'
