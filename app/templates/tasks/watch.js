@@ -29,7 +29,7 @@ module.exports = function (grunt) {
 			tasks: ['images']
 		},
 		markup: {
-			files: ['<%= scaffold.source %>/{,*/}*.{html,jade}'],
+			files: ['<%= scaffold.source %>/{,*/}*.{html,jade}', '<%= scaffold.source %>/views/{,*/}*.{html,jade}'],
 			tasks: ['markup']
 		}
 	};
