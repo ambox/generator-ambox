@@ -7,6 +7,7 @@ module.exports = function (grunt) {
 		options: {
 			timestamp: '<%= grunt.template.today() %>',
 			compileDebug: true,
+			namespace: false,
 			client: false,
 			pretty: true
 		},
