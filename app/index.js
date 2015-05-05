@@ -95,6 +95,7 @@ module.exports = yeoman.generators.Base.extend({
       // JS features
       this.includejQuery = this.hasFeature(answers.features, 'includejQuery');
       this.includeSizzle = answers.Sizzle;
+      this.includeJSPM = false;
       this.hasJSFeat = this.includejQuery || this.includeSizzle;
 
       // Features
@@ -185,7 +186,7 @@ module.exports = yeoman.generators.Base.extend({
       this.copy('tasks/concurrent.js', 'tasks/concurrent.js');
       this.copy('tasks/copy.js', 'tasks/copy.js');
       this.copy('tasks/cssmin.js', 'tasks/cssmin.js');
-      this.copy('tasks/exec.js', 'tasks/exec.js');
+      this.template('tasks/exec.js', 'tasks/exec.js');
       this.copy('tasks/imagemin.js', 'tasks/imagemin.js');
       this.copy('tasks/htmlcompressor.js', 'tasks/htmlcompressor.js');
       this.includeJade && this.copy('tasks/jade.js', 'tasks/jade.js');
