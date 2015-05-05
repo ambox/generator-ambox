@@ -14,9 +14,11 @@ module.exports = function (grunt) {
 	};
 
 	// Grunt plugin for executing shell commands.
-	// @see https://github.com/jharding/grunt-exec
+	// @see https://github.com/jharding/grunt-exec<% if (includeJSPM) { %>,
+	// @see https://www.npmjs.com/package/jspm<% } %>
 	return {
-		server: 'python <%= scaffold.server %>/manage.py runserver 0.0.0.0:8000',
-		launch: launch('<%= scaffold.static %>/index.html?debug=3')
+		server: 'python <%%= scaffold.server %>/manage.py runserver 0.0.0.0:8000',
+		launch: launch('<%%= scaffold.static %>/index.html?debug=3')<% if (includeJSPM) { %>,
+		jspm: 'node_modules/.bin/jspm bundle-sfx --minify scripts/main client/scripts/main.min.js'<% } %>
 	};
 };
