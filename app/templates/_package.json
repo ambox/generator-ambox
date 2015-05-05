@@ -3,6 +3,7 @@
   "description": "<%= pkg.description %>",
   "version": "0.0.0",
   "devDependencies": {
+    "aliasify": "^1.7.2",
     "browserify": "^9.0.7",
     "connect-livereload": "^0.5.3",
     "deamdify": "^0.1.1",
