@@ -1,0 +1,117 @@
+=position($shorthand, $offsets: null)
+  @if $shorthand != null
+    @if $shorthand == "static"
+      position: static
+    @else if $shorthand == "relative"
+      position: relative
+    @else if $shorthand == "absolute"
+      position: absolute
+    @else if $shorthand == "fixed"
+      position: fixed
+    @else
+      @debug "position only accepts 'static, relative, absolute, fixed' as shorthands"
+  @if length($offsets) == 1
+    $positionProperty: top, right, bottom, left
+    @if $offsets != none
+      @each $property in $positionProperty
+        #{$property}: $offsets
+  @else if length($offsets) == 2
+    @if nth($offsets, 1) != none
+      top: nth($offsets, 1)
+      bottom: nth($offsets, 1)
+    @if nth($offsets, 2) != none
+      right: nth($offsets, 2)
+      left: nth($offsets, 2)
+  @else if length($offsets) == 3
+    @if nth($offsets, 1) != none
+      top: nth($offsets, 1)
+    @if nth($offsets, 2) != none
+      right: nth($offsets, 2)
+      left: nth($offsets, 2)
+    @if nth($offsets, 3) != none
+      bottom: nth($offsets, 3)
+  @else if length($offsets) == 4
+    @if nth($offsets, 1) != none
+      top: nth($offsets, 1)
+    @if nth($offsets, 2) != none
+      right: nth($offsets, 2)
+    @if nth($offsets, 3) != none
+      bottom: nth($offsets, 3)
+    @if nth($offsets, 4) != none
+      left: nth($offsets, 4)
+
+=static($args: none)
+  +position(static, $args)
+
+=absolute($args: none)
+  +position(absolute, $args)
+
+=fixed($args: none)
+  +position(fixed, $args)
+
+=relative($args: none)
+  +position(relative, $args)
+
+=size($width: null, $height: null)
+  @if $width != null
+    width: $width
+  @if $height != null
+    height: $height
+
+=min-size($width: null, $height: null)
+  @if $width != null
+    min-width: $width
+  @if $height != null
+    min-height: $height
+
+=max-size($width: null, $height: null)
+  @if $width != null
+    max-width: $width
+  @if $height != null
+    max-height: $height
+
+@function calculateRem($size)
+  $remSize: $size / 16px
+  @return $remSize * 1rem
+
+=font-size($size: 12px)
+  font-size: $size
+  font-size: calculateRem($size)
+
+=line-height($size: 12px)
+  line-height: $size
+  line-height: calculateRem($size)
+
+=flipH
+  -moz-transform: scaleX(-1)
+  -o-transform: scaleX(-1)
+  -webkit-transform: scaleX(-1)
+  transform: scaleX(-1)
+  filter: FlipH
+  -ms-filter: "FlipH"
+
+=flipV
+  -moz-transform: scaleY(-1)
+  -o-transform: scaleY(-1)
+  -webkit-transform: scaleY(-1)
+  transform: scaleY(-1)
+  filter: FlipV
+  -ms-filter: "FlipV"
+
+=zoom($value: 1)
+  $zoom: $value * 100
+  -ms-zoom: $value
+  -ms-transform-origin: 0 0
+  -moz-transform: scale($value)
+  -moz-transform-origin: 0px #{$zoom}px
+  -o-transform: scale($value)
+  -o-transform-origin: 0px #{$zoom}px
+  -webkit-transform: scale($value)
+  -webkit-transform-origin: 0 0
+
+=opacity($opacity)
+  opacity: $opacity
+  $opacity-ie: $opacity * 100
+  filter: alpha(opacity=#{$opacity-ie})
+  filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=#{$opacity-ie})"
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=#{$opacity-ie})"
