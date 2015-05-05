@@ -39,5 +39,8 @@
     "static": "client",
     "source": "source",
     "tmp": ".tmp"
+  },
+  "aliasify": {
+    "aliases": {}
   }
 }
