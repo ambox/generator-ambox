@@ -175,7 +175,7 @@ module.exports = yeoman.generators.Base.extend({
 
     scripts: function() {
       this.log(chalk.green('\n ✓', chalk.white('Behaviors')));
-      this.copy('source/scripts/boot.js', 'source/scripts/boot.js');
+      this.template('source/scripts/boot.js', 'source/scripts/boot.js');
     },
 
     tasks: function() {
