@@ -156,12 +156,12 @@ module.exports = yeoman.generators.Base.extend({
       this.copy('source/styles/env/_Mixins.sass', 'source/styles/env/_Mixins.sass');
       this.copy('source/styles/env/_Vars.sass', 'source/styles/env/_Vars.sass');
       this.template('source/styles/app.sass', 'source/styles/app.sass');
+      this.copy('source/styles/theme/_Layout.sass', 'source/styles/theme/_Layout.sass');
       if (this.includeTheme) {
         this.copy('source/styles/theme/_Animations.sass', 'source/styles/theme/_Animations.sass');
         this.copy('source/styles/theme/_Breakpoints.sass', 'source/styles/theme/_Breakpoints.sass');
         this.copy('source/styles/theme/_Elements.sass', 'source/styles/theme/_Elements.sass');
         this.copy('source/styles/theme/_Fonts.sass', 'source/styles/theme/_Fonts.sass');
-        this.copy('source/styles/theme/_Layout.sass', 'source/styles/theme/_Layout.sass');
         this.copy('source/styles/theme/_Modules.sass', 'source/styles/theme/_Modules.sass');
         this.copy('source/styles/theme/_States.sass', 'source/styles/theme/_States.sass');
         this.copy('source/styles/theme/_Vars.sass', 'source/styles/theme/_Vars.sass');
