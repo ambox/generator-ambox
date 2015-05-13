@@ -1,12 +1,12 @@
-
-// Elements rules
-// ==============
-// Elements is a base rules. Base rules are the defaults.
+// Base rules
+// ==========
+// Base is a base rules. Base rules are the defaults.
 // They are almost exclusively single element selectors but it
 // could include attribute selectors,
 // pseudo-class selectors, child selectors or sibling selectors.
 // Essentially, a base style says that wherever this element is
 // on the page, it should look like this.
++normalize
 
 *,
 *:after,
@@ -16,11 +16,11 @@
 	
 html, body
 	+size(100% 100%);
-	+font-size(16px);
-	+line-height(16px);
+	overflow: hidden;
 
 html
 	touch-action: none;
 	
 body
-	overflow: hidden;
+	+font-size(16px);
+	+line-height(16px);
