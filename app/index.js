@@ -154,9 +154,9 @@ module.exports = yeoman.generators.Base.extend({
       this.log(chalk.green('\n ✓', chalk.white('BEM')));
       this.copy('source/styles/env/_Reset.sass', 'source/styles/env/_Reset.sass');
       this.copy('source/styles/env/_Mixins.sass', 'source/styles/env/_Mixins.sass');
-      this.copy('source/styles/env/_Vars.sass', 'source/styles/env/_Vars.sass');
+      this.copy('source/styles/env/_Variables.sass', 'source/styles/env/_Variables.sass');
       this.copy('source/styles/app.sass', 'source/styles/app.sass');
-      this.copy('source/styles/theme/_Vars.sass', 'source/styles/theme/_Vars.sass');
+      this.copy('source/styles/theme/_Variables.sass', 'source/styles/theme/_Variables.sass');
       this.copy('source/styles/theme/_Fonts.sass', 'source/styles/theme/_Fonts.sass');
       this.copy('source/styles/theme/_Animations.sass', 'source/styles/theme/_Animations.sass');
       this.copy('source/styles/theme/_Base.sass', 'source/styles/theme/_Base.sass');
