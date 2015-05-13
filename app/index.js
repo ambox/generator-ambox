@@ -30,7 +30,7 @@ module.exports = yeoman.generators.Base.extend({
           {
             name: 'Bower',
             value: 'includeBower',
-            checked: true
+            checked: false
           },
           {
             name: 'Component',
@@ -40,12 +40,7 @@ module.exports = yeoman.generators.Base.extend({
           {
             name: 'Jade',
             value: 'includeJade',
-            checked: true
-          },
-          {
-            name: 'Theme structure',
-            value: 'includeTheme',
-            checked: true
+            checked: false
           },
           {
             name: 'Modernizr',
@@ -88,9 +83,6 @@ module.exports = yeoman.generators.Base.extend({
       this.includeModernizr = this.hasFeature(answers.features, 'includeModernizr');
       this.includeHTML5Shiv = answers.HTML5Shiv;
       this.hasHTML5Feat = this.includeModernizr || this.includeHTML5Shiv;
-
-      // CSS features
-      this.includeTheme = this.hasFeature(answers.features, 'includeTheme');
 
       // JS features
       this.includejQuery = this.hasFeature(answers.features, 'includejQuery');
@@ -157,14 +149,16 @@ module.exports = yeoman.generators.Base.extend({
       this.copy('source/styles/env/_Variables.sass', 'source/styles/env/_Variables.sass');
       this.copy('source/styles/app.sass', 'source/styles/app.sass');
       this.copy('source/styles/theme/_Variables.sass', 'source/styles/theme/_Variables.sass');
-      this.copy('source/styles/theme/_Fonts.sass', 'source/styles/theme/_Fonts.sass');
+      this.copy('source/styles/theme/_Typography.sass', 'source/styles/theme/_Typography.sass');
       this.copy('source/styles/theme/_Animations.sass', 'source/styles/theme/_Animations.sass');
       this.copy('source/styles/theme/_Base.sass', 'source/styles/theme/_Base.sass');
       this.copy('source/styles/theme/_Modules.sass', 'source/styles/theme/_Modules.sass');
       this.copy('source/styles/theme/_States.sass', 'source/styles/theme/_States.sass');
       this.copy('source/styles/theme/_Layout.sass', 'source/styles/theme/_Layout.sass');
       this.copy('source/styles/theme/_Breakpoints.sass', 'source/styles/theme/_Breakpoints.sass');
-      this.copy('source/styles/theme/typography/.gitkeep', 'server/.gitkeep');
+      this.copy('server/.gitkeep', 'source/styles/theme/typography/.gitkeep');
+      this.copy('server/.gitkeep', 'source/styles/theme/modules/.gitkeep');
+      this.copy('server/.gitkeep', 'source/styles/theme/views/.gitkeep');
     },
 
     images: function() {

@@ -2,7 +2,7 @@
 	"name": "<%= _.slugify(_.humanize(appname)) %>",
 	"private": true,
 	"dependencies": {
-		"icons": "FortAwesome/Font-Awesome#~4.3.0",
+		"icons": "FortAwesome/Font-Awesome#4.3.0",
 		"purecss": "yahoo/pure#0.6.0"<% if (hasFeat) { %>,<% } if (includeModernizr) { %>
 		"modernizr": "Modernizr/Modernizr#2.8.3"<% if (includejQuery || includeSizzle) {%>,<%}} else { if (includeHTML5Shiv) { %>
 		"html5shiv": "aFarkas/html5shiv#3.7.2"<% if (includejQuery || includeSizzle) {%>,<%}}} if (includejQuery) { %>

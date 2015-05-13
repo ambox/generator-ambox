@@ -32,8 +32,15 @@
     "load-grunt-config": "^0.16.0",
     "load-grunt-tasks": "^3.1.0",
     "time-grunt": "^1.1.0"
-  },
-  "dependencies": {},
+  },<% if (!includeBower) { %>
+  "dependencies": {
+    "icons": "github:FortAwesome/Font-Awesome/tarball/master#4.3.0",
+    "purecss": "github:yahoo/pure/tarball/master#0.6.0"<% if (hasFeat) { %>,<% } if (includeModernizr) { %>
+    "modernizr": "github:Modernizr/Modernizr/tarball/master#2.8.3"<% if (includejQuery || includeSizzle) {%>,<%}} else { if (includeHTML5Shiv) { %>
+    "html5shiv": "github:aFarkas/html5shiv/tarball/master#3.7.2"<% if (includejQuery || includeSizzle) {%>,<%}}} if (includejQuery) { %>
+    "jquery": "github:components/jquery/tarball/master#1.11.2"<% } else { if (includeSizzle) { %>
+    "sizzle": "github:jquery/sizzle/tarball/master#2.0.0"<% }} %>
+  },<% } %>
   "browser": {},
   "browserify-shim": {},
   "scaffold": {
@@ -41,5 +48,8 @@
     "static": "client",
     "source": "source",
     "tmp": ".tmp"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

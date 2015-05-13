@@ -2,7 +2,7 @@
 module.exports = function (grunt) {
 	'use strict';
 
-	// # Globbing
+	// Globbing
 	// for performance reasons we're only matching one level down:
 	// 'test/spec/{,*/}*.js'
 	
