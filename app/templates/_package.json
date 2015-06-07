@@ -71,6 +71,30 @@
     "TweenMax": "./node_modules/gsap/src/uncompressed/TweenMax.js"
   },<% } else { %>
   "browser": {
+    "trace": "./source/scripts/vendors/trace/trace.js",
+    "class": "./source/scripts/vendors/class/dist/class.js",
+    "jquery": "./source/scripts/vendors/jquery/jquery.js",
+    "jquery.gsap": "./source/scripts/vendors/gsap/src/uncompressed/jquery.gsap.js",
+    "gsap.EasePack": "./source/scripts/vendors/gsap/src/uncompressed/easing/EasePack.js",
+    "gsap.CSSPlugin": "./source/scripts/vendors/gsap/src/uncompressed/plugins/CSSPlugin.js",
+    "gsap.BezierPlugin": "./source/scripts/vendors/gsap/src/uncompressed/plugins/BezierPlugin.js",
+    "gsap.DirectionalRotationPlugin": "./source/scripts/vendors/gsap/src/uncompressed/plugins/DirectionalRotationPlugin.js",
+    "gsap.AttrPlugin": "./source/scripts/vendors/gsap/src/uncompressed/plugins/AttrPlugin.js",
+    "gsap.RoundPropsPlugin": "./source/scripts/vendors/gsap/src/uncompressed/plugins/RoundPropsPlugin.js",
+    "gsap.ColorPropsPlugin": "./source/scripts/vendors/gsap/src/uncompressed/plugins/ColorPropsPlugin.js",
+    "gsap.CSSRulePlugin": "./source/scripts/vendors/gsap/src/uncompressed/plugins/CSSRulePlugin.js",
+    "gsap.EaselPlugin": "./source/scripts/vendors/gsap/src/uncompressed/plugins/EaselPlugin.js",
+    "gsap.KineticPlugin": "./source/scripts/vendors/gsap/src/uncompressed/plugins/KineticPlugin.js",
+    "gsap.RaphaelPlugin": "./source/scripts/vendors/gsap/src/uncompressed/plugins/RaphaelPlugin.js",
+    "gsap.ScrollToPlugin": "./source/scripts/vendors/gsap/src/uncompressed/plugins/ScrollToPlugin.js",
+    "gsap.TextPlugin": "./source/scripts/vendors/gsap/src/uncompressed/plugins/TextPlugin.js",
+    "gsap.EndArrayPlugin": "./source/scripts/vendors/gsap/src/uncompressed/plugins/EndArrayPlugin.js",
+    "gsap.TEMPLATE_Plugin": "./source/scripts/vendors/gsap/src/uncompressed/plugins/TEMPLATE_Plugin.js",
+    "gsap.Draggable": "./source/scripts/vendors/gsap/utils/Draggable.js",
+    "TimelineLite": "./source/scripts/vendors/gsap/src/uncompressed/TimelineLite.js",
+    "TimelineMax": "./source/scripts/vendors/gsap/src/uncompressed/TimelineMax.js",
+    "TweenLite": "./source/scripts/vendors/gsap/src/uncompressed/TweenLite.js",
+    "TweenMax": "./source/scripts/vendors/gsap/src/uncompressed/TweenMax.js"
   },<% } %>
   "browserify-shim": {
     "jquery.gsap": {
