@@ -47,7 +47,7 @@
   "browser": {
     "trace": "./node_modules/console.js/trace.js",
     "class": "./node_modules/class.js/dist/class.js",
-    "jquery": "./node_modules/jquery/dist/jquery.js",
+    "jquery": "./node_modules/jquery/jquery.js",
     "jquery.gsap": "./node_modules/gsap/src/uncompressed/jquery.gsap.js",
     "gsap.EasePack": "./node_modules/gsap/src/uncompressed/easing/EasePack.js",
     "gsap.CSSPlugin": "./node_modules/gsap/src/uncompressed/plugins/CSSPlugin.js",

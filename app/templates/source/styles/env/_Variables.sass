@@ -1,5 +1,6 @@
 // Base URL
 // --------
-$dir-vendors: "../scripts/vendors";
+
+$dir-vendors: <% if (includeBower) { %>"../scripts/vendors"<% } else { %>"../../node_modules"<% } %>;
 $dir-images: "../images";
 $dir-fonts: "theme/typography";
