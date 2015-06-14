@@ -13,6 +13,7 @@ module.exports = function (grunt) {
 				src: [
 					'index.html',
 					'views/**/*.{html,swf}',
+					'scripts/*.map',
 					'*.{ico,png,txt}',
 					'images/**/*.webp',
 					'styles/typography/**/*.*'
