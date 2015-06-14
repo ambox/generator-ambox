@@ -39,7 +39,7 @@
     "gsap": "greensock/GreenSock-JS",
     "icons": "github:FortAwesome/Font-Awesome",
     "purecss": "github:yahoo/pure"<% if (hasFeat) { %>,<% } if (includeModernizr) { %>
-    "modernizr": "github:Modernizr/Modernizr"<% if (includejQuery || includeSizzle) {%>,<%}} else { if (includeHTML5Shiv) { %>
+    "modernizr": "github:components/modernizr"<% if (includejQuery || includeSizzle) {%>,<%}} else { if (includeHTML5Shiv) { %>
     "html5shiv": "github:aFarkas/html5shiv"<% if (includejQuery || includeSizzle) {%>,<%}}} if (includejQuery) { %>
     "jquery": "github:components/jquery"<% } else { if (includeSizzle) { %>
     "sizzle": "github:jquery/sizzle"<% }} %>
@@ -155,7 +155,8 @@
       "depends": ["TimelineLite"]
     }
   },
-  "scaffold": {
+  "scaffold": {<% if (!includeBower) { %>
+    "vendors": "node_modules",<% } %>
     "server": "server",
     "static": "client",
     "source": "source",
