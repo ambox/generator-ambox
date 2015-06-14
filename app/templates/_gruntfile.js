@@ -5,27 +5,24 @@ module.exports = function (grunt) {
 	// Globbing
 	// for performance reasons we're only matching one level down:
 	// 'test/spec/{,*/}*.js'
-	
+
 	// use this if you want to recursively match all subfolders:
 	// 'test/spec/**/*.js'
 
 	require('load-grunt-tasks')(grunt);
 	require('time-grunt')(grunt);
 
-	function execute(path, gruntConfig, vendors, pack) {
-		pack.scaffold.vendors = vendors;
-		gruntConfig(grunt, {
+	var execute = function(pack<% if (includeBower) { %>, bowerrc<% } %>) {<% if (includeBower) { %>
+		pack.scaffold.vendors = bowerrc.directory;<% } %>
+		require('load-grunt-config')(grunt, {
 			data: pack,
-			configPath: path.join(process.cwd(), 'tasks'),
+			configPath: require('path').join(process.cwd(), 'tasks'),
 			loadGruntTasks: {
 				config: pack,
 				scope: 'devDependencies'
 			}
 		});
-	}
+	};
 
-	execute(require('path'), require('load-grunt-config'),
-		grunt.file.readJSON('.bowerrc').directory,
-		grunt.file.readJSON('package.json')
-	);
+	execute(grunt.file.readJSON('package.json')<% if (includeBower) { %>, grunt.file.readJSON('.bowerrc')<% } %>);
 };

@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="styles/app.css">
     <!-- /build --><% if (includeModernizr) { %>
     <!-- build:js scripts/modernizr.min.js -->
-    <script src="scripts/vendors/modernizr/modernizr.js"></script>
+    <script src="<% if (includeBower) { %>scripts/vendors/modernizr<% } else { %>node_modules/component-modernizr<% } %>/modernizr.js"></script>
     <!-- /build --><% } else { if (includeHTML5Shiv) { %><!--[if lt IE 9]>
     <!-- build:js scripts/html5shiv.min.js -->
-    <script src="scripts/vendors/html5shiv/dist/html5shiv.js"></script>
+    <script src="<% if (includeBower) { %>scripts/vendors<% } else { %>node_modules<% } %>/html5shiv/dist/html5shiv.js"></script>
     <!-- /build --><![endif]-->
     <% }} %>
   </head>

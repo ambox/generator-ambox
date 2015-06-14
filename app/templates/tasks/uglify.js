@@ -7,7 +7,7 @@ module.exports = function (grunt) {
 		aids: {
 			files: {<% if (includeModernizr) { %>
 				'<%%= scaffold.static %>/scripts/modernizr.min.js': [
-					'<%%= scaffold.vendors %>/modernizr/modernizr.js'
+					'<%%= scaffold.vendors %>/<% if (includeBower) { %>modernizr<% } else { %>component-modernizr<% } %>/modernizr.js'
 				]<% } else { if (includeHTML5Shiv) { %>
 				'<%%= scaffold.static %>/scripts/html5shiv.min.js': [
 					'<%%= scaffold.vendors %>/html5shiv/dist/html5shiv.js'
