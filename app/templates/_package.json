@@ -157,6 +157,7 @@
   },
   "scaffold": {<% if (!includeBower) { %>
     "vendors": "node_modules",<% } %>
+    "modules": ["desktop"],
     "server": "server",
     "static": "client",
     "source": "source",
