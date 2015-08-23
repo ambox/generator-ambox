@@ -44,7 +44,7 @@
     "html5shiv": "github:aFarkas/html5shiv"<% if (includejQuery || includeZepto) {%>,<%}}} if (includejQuery) { %>
     "jquery": "github:components/jquery"<% } else { if (includeZepto) { %>
     "zepto": "github:dajbd/zepto"<% }} %>
-  },
+  },<% if (includeBrowserify) { %>
   "browser": {
     "trace": "./node_modules/console.js/trace.js",
     "class": "./node_modules/class.js/dist/class.js",<% if (includejQuery) { %>
@@ -70,7 +70,7 @@
     "TimelineMax": "./node_modules/gsap/src/uncompressed/TimelineMax.js",
     "TweenLite": "./node_modules/gsap/src/uncompressed/TweenLite.js",
     "TweenMax": "./node_modules/gsap/src/uncompressed/TweenMax.js"
-  },<% } else { %>
+  },<% }} else { if (includeBrowserify) { %>
   "browser": {
     "trace": "./source/scripts/vendors/trace/trace.js",
     "class": "./source/scripts/vendors/class/dist/class.js",<% if (includejQuery) { %>
@@ -96,7 +96,7 @@
     "TimelineMax": "./source/scripts/vendors/gsap/src/uncompressed/TimelineMax.js",
     "TweenLite": "./source/scripts/vendors/gsap/src/uncompressed/TweenLite.js",
     "TweenMax": "./source/scripts/vendors/gsap/src/uncompressed/TweenMax.js"
-  },<% } %>
+  },<% }} if (includeBrowserify) { %>
   "browserify-shim": {<% if (includejQuery) { %>
     "jquery.gsap": {
       "depends": ["gsap.CSSPlugin", "jquery"]
@@ -155,7 +155,7 @@
     "TimelineMax": {
       "depends": ["TimelineLite"]
     }
-  },
+  },<% } %>
   "scaffold": {<% if (!includeBower) { %>
     "vendors": "node_modules",<% } %>
     "modules": ["desktop"],
