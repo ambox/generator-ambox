@@ -7,11 +7,11 @@ require.config({
 		
 		// Common
 		'trace':'vendors/trace/trace',
-		'class':'vendors/class/dist/class',
+		'class':'vendors/class/dist/class',<% if (includejQuery) { %>
 		
 		// jQuery
 		'jquery': 'vendors/jquery/jquery',
-		'jquery.gsap': 'vendors/gsap/jquery.gsap',
+		'jquery.gsap': 'vendors/gsap/jquery.gsap',<% } else { if (includeSizzle) { %>
 		
 		// Zepto
 		'zepto':'vendors/zepto/src/zepto',
@@ -30,7 +30,7 @@ require.config({
 		'zepto.fx':'vendors/zepto/src/fx',
 		'zepto.gesture':'vendors/zepto/src/gesture',
 		'zepto.ios3':'vendors/zepto/src/ios3',
-		'zepto.stack':'vendors/zepto/src/stack',
+		'zepto.stack':'vendors/zepto/src/stack',<% }} %>
 
 		// GSAP
 		'gsap.EasePack': 'vendors/gsap/easing/EasePack',
@@ -54,7 +54,7 @@ require.config({
 		'TweenLite': 'vendors/gsap/TweenLite',
 		'TweenMax': 'vendors/gsap/TweenMax'
 	},
-	shim:{
+	shim:{<% if (includejQuery) { %>
 		// jQuery
 		'jquery': {
 			exports: '$'
@@ -62,7 +62,7 @@ require.config({
 		'jquery.gsap': {
 			deps: ['gsap.CSSPlugin', 'jquery']
 		},
-
+		<% } else { if (includeSizzle) { %>
 		// Zepto
 		'zepto':{
 			exports:'$'
@@ -118,7 +118,7 @@ require.config({
 		'zepto.serializeObject':{
 			deps:['zepto', 'zepto.form']
 		},
-
+		<% }} %>
 		// GSAP
 		'gsap.Draggable': {
 			deps: ['gsap.CSSPlugin'],
