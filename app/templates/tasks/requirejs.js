@@ -9,9 +9,9 @@ module.exports = function (grunt, options) {
 		// @see https://github.com/gruntjs/grunt-contrib-requirejs
 		config[module] = {
 			options: {
-				baseUrl: '<%= scaffold.src %>/scripts',
+				baseUrl: '<%= scaffold.source %>/scripts',
 				include: ['requirejs', 'config-'+ module],
-				mainConfigFile: '<%= scaffold.src %>/scripts/config-'+ module +'.js',
+				mainConfigFile: '<%= scaffold.source %>/scripts/config-'+ module +'.js',
 				out: '<%= scaffold.tmp %>/scripts/body-'+ module +'.min.js',
 				optimize: 'none', // none|uglify2
 				optimizeCss: 'none',
@@ -30,6 +30,5 @@ module.exports = function (grunt, options) {
 		};
 	});
 	
-	// @see tasks/scaffold.js
 	return config;
 };

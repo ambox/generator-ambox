@@ -28,6 +28,11 @@ module.exports = yeoman.generators.Base.extend({
         message: 'What more would you like?',
         choices: [
           {
+            name: 'Browserify',
+            value: 'includeBrowserify',
+            checked: true
+          },
+          {
             name: 'Bower',
             value: 'includeBower',
             checked: false
@@ -75,6 +80,7 @@ module.exports = yeoman.generators.Base.extend({
     ];
     this.prompt(prompts, function(answers) {
       // Package managers
+      this.includeBrowserify = this.hasFeature(answers.features, 'includeBrowserify');
       this.includeBower = this.hasFeature(answers.features, 'includeBower');
       this.includeComponent = this.hasFeature(answers.features, 'includeComponent');
       
@@ -100,7 +106,7 @@ module.exports = yeoman.generators.Base.extend({
     tree: function() {
       this.log(chalk.magenta('Tree:'));
       this.mkdir('source/images');
-      this.mkdir('source/scripts');
+      this.mkdir('source/scripts/app');
       this.mkdir('source/styles/env');
       this.mkdir('source/styles/theme/typography');
       this.mkdir('source/styles/theme/modules');
@@ -169,13 +175,22 @@ module.exports = yeoman.generators.Base.extend({
 
     scripts: function() {
       this.log(chalk.green('\n ✓', chalk.white('Behaviors')));
-      this.template('source/scripts/boot.js', 'source/scripts/boot.js');
+      if (this.includeBrowserify) {
+        this.template('source/scripts/boot.js', 'source/scripts/boot.js');
+      } else {
+        this.template('source/scripts/app/main.js', 'source/scripts/app/main.js');
+        this.template('source/scripts/config-desktop.js', 'source/scripts/config-desktop.js');
+      }
     },
 
     tasks: function() {
       this.log(chalk.green('\n ✓', chalk.white('Tasks')));
       this.copy('tasks/autoprefixer.js', 'tasks/autoprefixer.js');
-      this.copy('tasks/browserify.js', 'tasks/browserify.js');
+      if(this.includeBrowserify) {
+        this.copy('tasks/browserify.js', 'tasks/browserify.js');
+      } else {
+        this.copy('tasks/requirejs.js', 'tasks/requirejs.js');
+      }
       this.copy('tasks/clean.js', 'tasks/clean.js');
       this.copy('tasks/concurrent.js', 'tasks/concurrent.js');
       this.copy('tasks/copy.js', 'tasks/copy.js');
