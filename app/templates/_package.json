@@ -46,9 +46,9 @@
   },
   "browser": {
     "trace": "./node_modules/console.js/trace.js",
-    "class": "./node_modules/class.js/dist/class.js",
+    "class": "./node_modules/class.js/dist/class.js",<% if (includejQuery) { %>
     "jquery": "./node_modules/jquery/jquery.js",
-    "jquery.gsap": "./node_modules/gsap/src/uncompressed/jquery.gsap.js",
+    "jquery.gsap": "./node_modules/gsap/src/uncompressed/jquery.gsap.js",<% } %>
     "gsap.EasePack": "./node_modules/gsap/src/uncompressed/easing/EasePack.js",
     "gsap.CSSPlugin": "./node_modules/gsap/src/uncompressed/plugins/CSSPlugin.js",
     "gsap.BezierPlugin": "./node_modules/gsap/src/uncompressed/plugins/BezierPlugin.js",
@@ -72,9 +72,9 @@
   },<% } else { %>
   "browser": {
     "trace": "./source/scripts/vendors/trace/trace.js",
-    "class": "./source/scripts/vendors/class/dist/class.js",
+    "class": "./source/scripts/vendors/class/dist/class.js",<% if (includejQuery) { %>
     "jquery": "./source/scripts/vendors/jquery/jquery.js",
-    "jquery.gsap": "./source/scripts/vendors/gsap/src/uncompressed/jquery.gsap.js",
+    "jquery.gsap": "./source/scripts/vendors/gsap/src/uncompressed/jquery.gsap.js",<% } %>
     "gsap.EasePack": "./source/scripts/vendors/gsap/src/uncompressed/easing/EasePack.js",
     "gsap.CSSPlugin": "./source/scripts/vendors/gsap/src/uncompressed/plugins/CSSPlugin.js",
     "gsap.BezierPlugin": "./source/scripts/vendors/gsap/src/uncompressed/plugins/BezierPlugin.js",
@@ -96,10 +96,10 @@
     "TweenLite": "./source/scripts/vendors/gsap/src/uncompressed/TweenLite.js",
     "TweenMax": "./source/scripts/vendors/gsap/src/uncompressed/TweenMax.js"
   },<% } %>
-  "browserify-shim": {
+  "browserify-shim": {<% if (includejQuery) { %>
     "jquery.gsap": {
       "depends": ["gsap.CSSPlugin", "jquery"]
-    },
+    },<% } %>
     "gsap.Draggable": {
       "depends": ["gsap.CSSPlugin"]
     },
