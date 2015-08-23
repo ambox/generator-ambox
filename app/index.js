@@ -81,7 +81,7 @@ module.exports = yeoman.generators.Base.extend({
     this.prompt(prompts, function(answers) {
       // Package managers
       this.includeBrowserify = this.hasFeature(answers.features, 'includeBrowserify');
-      this.includeBower = this.hasFeature(answers.features, 'includeBower');
+      this.includeBower = this.includeBrowserify || this.hasFeature(answers.features, 'includeBower');
       this.includeComponent = this.hasFeature(answers.features, 'includeComponent');
       
       // HTML features
