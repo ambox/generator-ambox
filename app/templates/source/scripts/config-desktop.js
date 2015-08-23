@@ -1,7 +1,6 @@
 /* global require */
 require.config({
 	waitSeconds:10,
-	baseUrl:'scripts',
 	paths:{
 		'requirejs':'vendors/requirejs/require',
 		
