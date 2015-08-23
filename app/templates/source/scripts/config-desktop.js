@@ -11,7 +11,7 @@ require.config({
 		
 		// jQuery
 		'jquery': 'vendors/jquery/jquery',
-		'jquery.gsap': 'vendors/gsap/jquery.gsap',<% } else { if (includeSizzle) { %>
+		'jquery.gsap': 'vendors/gsap/jquery.gsap',<% } else { if (includeZepto) { %>
 		
 		// Zepto
 		'zepto':'vendors/zepto/src/zepto',
@@ -62,7 +62,7 @@ require.config({
 		'jquery.gsap': {
 			deps: ['gsap.CSSPlugin', 'jquery']
 		},
-		<% } else { if (includeSizzle) { %>
+		<% } else { if (includeZepto) { %>
 		// Zepto
 		'zepto':{
 			exports:'$'

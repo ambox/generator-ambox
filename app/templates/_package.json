@@ -39,10 +39,10 @@
     "gsap": "greensock/GreenSock-JS",
     "icons": "github:FortAwesome/Font-Awesome",
     "purecss": "github:yahoo/pure"<% if (hasFeat) { %>,<% } if (includeModernizr) { %>
-    "modernizr": "github:components/modernizr"<% if (includejQuery || includeSizzle) {%>,<%}} else { if (includeHTML5Shiv) { %>
-    "html5shiv": "github:aFarkas/html5shiv"<% if (includejQuery || includeSizzle) {%>,<%}}} if (includejQuery) { %>
-    "jquery": "github:components/jquery"<% } else { if (includeSizzle) { %>
-    "sizzle": "github:jquery/sizzle"<% }} %>
+    "modernizr": "github:components/modernizr"<% if (includejQuery || includeZepto) {%>,<%}} else { if (includeHTML5Shiv) { %>
+    "html5shiv": "github:aFarkas/html5shiv"<% if (includejQuery || includeZepto) {%>,<%}}} if (includejQuery) { %>
+    "jquery": "github:components/jquery"<% } else { if (includeZepto) { %>
+    "zepto": "github:dajbd/zepto"<% }} %>
   },
   "browser": {
     "trace": "./node_modules/console.js/trace.js",

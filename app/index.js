@@ -65,8 +65,8 @@ module.exports = yeoman.generators.Base.extend({
       },
       {
         type: 'confirm',
-        name: 'Sizzle',
-        value: 'includeSizzle',
+        name: 'Zepto',
+        value: 'includeZepto',
         message: 'Would you like to use a pure-JavaScript CSS selector engine?',
         when: function(answers) {
           return !this.hasFeature(answers.features, 'includejQuery');
@@ -86,9 +86,9 @@ module.exports = yeoman.generators.Base.extend({
 
       // JS features
       this.includejQuery = this.hasFeature(answers.features, 'includejQuery');
-      this.includeSizzle = answers.Sizzle;
+      this.includeZepto = answers.Zepto;
       this.includeJSPM = false;
-      this.hasJSFeat = this.includejQuery || this.includeSizzle;
+      this.hasJSFeat = this.includejQuery || this.includeZepto;
 
       // Features
       this.hasFeat = this.hasHTML5Feat || this.hasJSFeat;
