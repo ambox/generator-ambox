@@ -12,7 +12,7 @@ module.exports = function (grunt, options) {
 				baseUrl: '<%= scaffold.source %>/scripts',
 				include: ['requirejs', 'config-'+ module],
 				mainConfigFile: '<%= scaffold.source %>/scripts/config-'+ module +'.js',
-				out: '<%= scaffold.tmp %>/scripts/body-'+ module +'.min.js',
+				out: '<%= scaffold.static %>/scripts/body-'+ module +'.min.js',
 				optimize: 'none', // none|uglify2
 				optimizeCss: 'none',
 				uglify2: { mangle: false },

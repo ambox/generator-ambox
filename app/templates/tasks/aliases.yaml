@@ -18,9 +18,9 @@ static:
 scripts:
   - 'jshint'<% if (hasHTML5Feat) { %>
   - 'uglify:aids'<% } if (includeBrowserify) { %>
-  - 'browserify'<% } else { %>
+  - 'browserify'
+  - 'uglify:boot'<% } else { %>
   - 'requirejs'<% } %>
-  - 'uglify:boot'
   - 'clean:tmp'
 
 styles:

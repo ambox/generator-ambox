@@ -13,7 +13,7 @@ module.exports = function (grunt) {
 					'<%%= scaffold.vendors %>/html5shiv/dist/html5shiv.js'
 				]<% }} %>
 			}
-		},<% } %>
+		}<% } if (includeBrowserify) { %>,
 		boot: {
 			options: {
 				mangle: false,
@@ -24,6 +24,6 @@ module.exports = function (grunt) {
 					'<%%= scaffold.source %>/scripts/boot.bundle.js'
 				]
 			}
-		}
+		}<% } %>
 	};
 };
