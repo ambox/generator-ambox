@@ -2,7 +2,7 @@
 require.config({
 	waitSeconds:10,
 	paths:{
-		'requirejs':'vendors/requirejs/require',
+		'requirejs':'vendors/require/require',
 		
 		// Common
 		'trace':'vendors/trace/trace',
