@@ -17,8 +17,9 @@
   </head>
   <body>
     <div class="app"></div>
-    <!-- build:js scripts/boot.min.js -->
-    <script src="scripts/boot.bundle.js"></script>
+    <!-- build:js scripts/boot.min.js --><% if (!includeBrowserify) { %>
+    <script src="scripts/vendors/require/require.js"></script><% } %>
+    <script src="scripts/<% if (includeBrowserify) { %>boot.bundle.js<% } else { %>config-desktop.js<% } %>"></script>
     <!-- /build -->
   </body>
 </html>
