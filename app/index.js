@@ -180,6 +180,7 @@ module.exports = yeoman.generators.Base.extend({
       } else {
         this.template('source/scripts/app/main.js', 'source/scripts/app/main.js');
         this.template('source/scripts/config-desktop.js', 'source/scripts/config-desktop.js');
+        this.template('source/scripts/scope.js', 'source/scripts/scope.js');
       }
     },
 

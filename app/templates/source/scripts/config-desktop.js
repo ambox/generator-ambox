@@ -182,7 +182,7 @@ require.config({
 
 		// Facade
 		'app/main':{
-			deps:['trace', 'class', 'zepto', 'zepto.selector', 'zepto.event', 'zepto.fx']
+			deps:['trace', 'class'<% if (includejQuery) { %>, 'jquery' <% } else { if (includeZepto) { %>, 'zepto', 'zepto.selector', 'zepto.event', 'zepto.fx'<% }} %>]
 		}
 	},
 	callback:function(){
