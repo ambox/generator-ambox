@@ -145,6 +145,7 @@ module.exports = yeoman.generators.Base.extend({
     
     git: function() {
       this.log(chalk.green('\n ✓', chalk.white('Git')));
+      this.copy('git.attributes', '.gitattributes');
       this.copy('git.ignore', '.gitignore');
     },
 
