@@ -28,6 +28,7 @@
     "grunt-processhtml": "^0.3.7",
     "grunt-sass": "^0.18.1",
     "grunt-svgmin": "^2.0.1",
+    "strip-json-comments": "^1.0.3",
     "imagemin-mozjpeg": "^4.0.0",
     "jshint-stylish": "^1.0.0",
     "load-grunt-config": "^0.16.0",
