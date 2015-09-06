@@ -15,8 +15,8 @@ module.exports = function (grunt) {
 	var readOptionalJSON = function(filepath) {
 		var data = {};
 		try {
-			data = JSON.parse(stripJSONComments(
-				fs.readFileSync(filepath, { encoding: 'utf8' })
+			data = JSON.parse(require('strip-json-comments')(
+				require('fs').readFileSync(filepath, { encoding: 'utf8' })
 			));
 		} catch(e){}
 		return data;
