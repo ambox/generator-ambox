@@ -11,6 +11,16 @@ module.exports = function (grunt) {
 
 	require('load-grunt-tasks')(grunt);
 	require('time-grunt')(grunt);
+	
+	var readOptionalJSON = function(filepath) {
+		var data = {};
+		try {
+			data = JSON.parse(stripJSONComments(
+				fs.readFileSync(filepath, { encoding: 'utf8' })
+			));
+		} catch(e){}
+		return data;
+	};
 
 	var execute = function(pack<% if (includeBower) { %>, bowerrc<% } %>) {<% if (includeBower) { %>
 		pack.scaffold.vendors = bowerrc.directory;<% } %>
