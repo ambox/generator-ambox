@@ -8,12 +8,12 @@ module.exports = function (grunt) {
 
 	// use this if you want to recursively match all subfolders:
 	// 'test/spec/**/*.js'
-  
-  // Load multiple grunt tasks using globbing patterns
+
+	// Load multiple grunt tasks using globbing patterns
 	// @see https://www.npmjs.com/package/load-grunt-tasks
 	require('load-grunt-tasks')(grunt);
 	
-  // Display the elapsed execution time of grunt tasks
+	// Display the elapsed execution time of grunt tasks
 	// @see https://www.npmjs.com/package/time-grunt
 	require('time-grunt')(grunt);
 	
