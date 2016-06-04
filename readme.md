@@ -58,13 +58,13 @@ yo ambox
 or separately
 
 ```bash
-yo ambox:front project-name
+yo ambox:front app-name
 ```
 
 or yet
 
 ```bash
-yo ambox:back project-name
+yo ambox:back app-name
 ```
 
 ### Uninstalling
