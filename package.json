@@ -1,0 +1,63 @@
+{
+  "name": "generator-ambox",
+  "version": "1.0.0",
+  "author": "Adrian C. Miranda",
+  "repository": "git@bitbucket.org:ambox/gulp-template.git",
+  "description": "Ambox template generator",
+  "frontDirs": {
+    "content": "../",
+    "styles": "source/styles/",
+    "fonts": "source/styles/fonts/",
+    "scripts": "source/scripts/",
+    "vendors": "source/scripts/vendors/",
+    "games": "source/scripts/games/",
+    "images": "source/media/",
+    "videos": "source/media/videos/",
+    "sounds": "source/media/sounds/",
+    "views": "source/views/",
+    "assets": "assets/",
+    "source": "source/",
+    "tasks": "tasks/",
+    "tests": "tests/"
+  },
+  "scripts": {
+    "start": "gulp",
+    "test": "gulp test"
+  },
+  "dependencies": {
+    "Proto": "1.0.0",
+    "chalk": "1.1.3",
+    "cheerio": "0.20.0",
+    "fs-extra": "0.30.0",
+    "lodash.camelcase": "4.1.1",
+    "mkdirp": "0.5.1",
+    "yeoman-generator": "0.20.3",
+    "yosay": "1.1.1"
+  },
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-eslint": "2.0.0",
+    "gulp-jslint": "1.0.1",
+    "gulp-mocha": "2.2.0",
+    "load-gulp-config": "1.2.2",
+    "lodash.capitalize": "4.1.1",
+    "shelljs": "0.7.0",
+    "temp": "0.8.3"
+  },
+  "files": [
+    "generators/app",
+    "generators/back",
+    "generators/front"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "front-end",
+    "frontend",
+    "back-end",
+    "backend",
+    "scaffold",
+    "webapp",
+    "ambox",
+    "app"
+  ]
+}
