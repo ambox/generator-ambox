@@ -12,5 +12,6 @@ Example:
         bower.json: Front-end packages installed by bower.
         package.json: Development packages installed by npm.
 
-        source/: Your application files.
+        server/: Your server application files.
+        client/: Your client application files.
         test/: Unit tests for your application.
