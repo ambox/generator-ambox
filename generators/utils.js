@@ -15,7 +15,7 @@ exports.hasFeature = function(list, feature){
 };
 
 exports.appname = function(value){
-  if(value){
+  if(typeof value === 'string'){
     value = camelCase(value);
     return value[0].toUpperCase() + value.substr(1);
   }
