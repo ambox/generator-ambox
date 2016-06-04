@@ -45,8 +45,7 @@
   "files": [
     "generators/app",
     "generators/back",
-    "generators/front",
-    "generators/library"
+    "generators/front"
   ],
   "keywords": [
     "yeoman-generator",
