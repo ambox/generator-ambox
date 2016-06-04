@@ -1,7 +1,6 @@
 'use strict';
 
 var camelCase = require('lodash.camelcase');
-var capitalize = require('lodash.capitalize');
 var path = require('path');
 var fsx = require('fs-extra');
 

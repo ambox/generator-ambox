@@ -27,7 +27,6 @@
   "dependencies": {
     "Proto": "1.0.0",
     "chalk": "1.1.3",
-    "cheerio": "0.20.0",
     "fs-extra": "0.30.0",
     "lodash.camelcase": "4.1.1",
     "mkdirp": "0.5.1",
@@ -40,14 +39,14 @@
     "gulp-jslint": "1.0.1",
     "gulp-mocha": "2.2.0",
     "load-gulp-config": "1.2.2",
-    "lodash.capitalize": "4.1.1",
     "shelljs": "0.7.0",
     "temp": "0.8.3"
   },
   "files": [
     "generators/app",
     "generators/back",
-    "generators/front"
+    "generators/front",
+    "generators/library"
   ],
   "keywords": [
     "yeoman-generator",
