@@ -1,0 +1,51 @@
+{
+  "name": "<%= name %>",
+  "author": "<%= author %>",
+  "version": "<%= version %>",
+  "description": "<%= description %>",
+  "main": <%= main %>,
+  "license": "ISC",
+  "scripts": {
+    "bower": "node_modules/bower/bin/bower",
+    "start": "npm cache clean && npm install && gulp watch",
+    "postinstall": "npm run bower cache clean && npm run bower install && gulp bower",
+    "test": "gulp test"
+  },
+  "appDirs": {
+    "index": "../",
+    "styles": "source/styles/",
+    "fonts": "source/styles/fonts/",
+    "scripts": "source/scripts/",
+    "vendors": "source/scripts/vendors/",
+    "games": "source/scripts/games/",
+    "images": "source/media/",
+    "videos": "source/media/videos/",
+    "sounds": "source/media/sounds/",
+    "views": "source/views/",
+    "assets": "assets/",
+    "source": "source/",
+    "tasks": "tasks/",
+    "tests": "tests/"
+  },
+  "devDependencies": {
+    "bower": "1.7.9",
+    "browser-sync": "2.12.10",
+    "gulp": "3.9.1",
+    "gulp-autoprefixer": "3.1.0",
+    "gulp-bump": "2.1.0",
+    "gulp-git": "1.7.2",
+    "gulp-if": "2.0.1",
+    "gulp-preprocess": "2.0.0",
+    "gulp-jslint": "1.0.1",
+    "gulp-notify": "2.2.0",
+    "gulp-prompt": "0.2.0",
+    "gulp-mocha": "2.2.0",
+    "gulp-sass": "2.3.1",
+    "gulp-sourcemaps": "1.6.0",
+    "gulp-useref": "3.1.0",
+    "load-gulp-config": "1.3.0",
+    "preen": "1.2.0",
+    "run-sequence": "1.2.1",
+    "yargs": "4.7.1"
+  }
+}
