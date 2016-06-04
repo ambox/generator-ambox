@@ -1,7 +1,0 @@
-{
-  "name": "<%= _.slugify(_.humanize(appname)) %>",
-  "description": "<%= pkg.description %>",
-  "version": "0.0.0",
-  "dependencies": {},
-  "license": "MIT"
-}
