@@ -1,9 +1,0 @@
-{
-	"directory": "source/scripts/vendors",
-	"json": "bower.json",
-	"searchpath": [
-		"http://github.com/ambox/generator-ambox.git",
-		"git://github.com/ambox/generator-ambox.git",
-		"git@github.com:ambox/generator-ambox.git"
-	]
-}
