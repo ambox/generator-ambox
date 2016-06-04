@@ -4,8 +4,9 @@
   "author": "Adrian C. Miranda",
   "repository": "git@bitbucket.org:ambox/gulp-template.git",
   "description": "Ambox template generator",
+  "backDirs": {},
   "frontDirs": {
-    "content": "../",
+    "index": "../",
     "styles": "source/styles/",
     "fonts": "source/styles/fonts/",
     "scripts": "source/scripts/",
@@ -30,7 +31,9 @@
     "fs-extra": "0.30.0",
     "lodash.camelcase": "4.1.1",
     "mkdirp": "0.5.1",
+    "yeoman-assert": "2.2.1",
     "yeoman-generator": "0.20.3",
+    "yeoman-test": "1.4.0",
     "yosay": "1.1.1"
   },
   "devDependencies": {
