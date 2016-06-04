@@ -10,8 +10,8 @@ exports.readJsonSync = function(filepath, opts){
   return {};
 };
 
-exports.hasFeature = function(list, feature){
-  return Array.isArray(list)? !!~list.indexOf(feature) : !!list;
+exports.hasFeature = function(val, feature){
+  return Array.isArray(val)? !!~val.indexOf(feature) : !!val;
 };
 
 exports.appname = function(value){
