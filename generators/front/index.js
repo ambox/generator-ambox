@@ -247,8 +247,8 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
 
   _onEnd:function(){
     if(!this.options['skip-install']){
-      // console.log(chalk.green('Installing front-end dependencies for you....'));
-      // console.log(chalk.yellow('This may take a couple minutes.'));
+      this.log(chalk.green('Installing front-end dependencies for you....'));
+      this.log(chalk.yellow('This may take a couple minutes.'));
       // this.spawnCommand('npm', ['start'], { cwd:'./' });
     }
   }
