@@ -36,11 +36,19 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
       default:false
     }, {
       type:'confirm',
+      name:'rjs',
+      message:'Would you like to use only r.js?',
+      default:false,
+      when:function(answers){
+        return answers.requirejs;
+      }
+    }, {
+      type:'confirm',
       name:'browserify',
       message:'Would you like to use Browserify?',
       default:false,
       when:function(answers){
-        return !answers.require;
+        return !answers.requirejs;
       }
     }, {
       type:'confirm',
@@ -48,7 +56,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
       message:'Would you like to use ES6?',
       default:false,
       when:function(answers){
-        return !answers.require;
+        return !answers.requirejs;
       }
     }, {
       type:'confirm',
@@ -56,14 +64,15 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
       message:'Would you like to use TypeScript?',
       default:false,
       when:function(answers){
-        return !answers.require;
+        return !answers.requirejs;
       }
     }], function(answers){
-      this.answers.require = !!(answers.require);
+      this.answers.requirejs = !!(answers.requirejs && !answers.rjs);
+      this.answers.rjs = !!(answers.requirejs && answers.rjs);
       this.answers.browserify = !!(answers.browserify);
-      this.answers.es6 = !!(answers.es6);
-      this.answers.ts = !!(answers.ts);
-      this.answers.useModuleLoader = Utils.hasFeature(this.answers, 'require|browserify|es6|ts');
+      this.answers.ecmascript6 = !!(answers.ecmascript6);
+      this.answers.typescript = !!(answers.typescript);
+      this.answers.useModuleLoader = Utils.hasFeature(this.answers, 'requirejs|browserify|ecmascript6|typescript');
       done();
     }.bind(this));
   },
