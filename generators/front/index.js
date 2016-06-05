@@ -47,11 +47,36 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
   },
 
   ask4Stylus:function(){
-    // var done = this.async();
+    var done = this.async();
+    this.prompt([{
+      type:'confirm',
+      name:'stylus',
+      message:'Would you like to use Stylus?',
+      default:false
+    }], function(answers){
+      this.answers.stylus = answers.stylus;
+      done();
+    }.bind(this));
   },
 
   ask4Sass:function(){
-    // var done = this.async();
+    if(this.answers.stylus)return;
+    var done = this.async();
+    this.prompt([{
+      type:'confirm',
+      name:'sass',
+      message:'Would you like to use Sass?',
+      default:false
+    }, {
+      type:'confirm',
+      name:'idented',
+      message:'Indentation-oriented syntax?',
+      default:false
+    }], function(answers){
+      this.answers.sass = answers.sass && answers.idented;
+      this.answers.scss = answers.sass && !answers.idented;
+      done();
+    }.bind(this));
   },
 
   ask4Gulp:function(){
