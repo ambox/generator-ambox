@@ -187,8 +187,8 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
       answers.keywords = [].concat(Utils.tstringify(answers.keywords));
       answers.author = answers.author;
       answers.license = answers.license;
+      this.log(chalk.cyan.underline.bold('answers:'), JSON.stringify(answers, null, 2));
       this.answers.package = answers;
-      this.log(chalk.cyan.underline.bold('answers:'), JSON.stringify(this.answers, null, 2));
       done();
     }.bind(this));
   },
