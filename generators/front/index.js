@@ -251,6 +251,12 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
       {
         this.fs.copyTpl
         (
+          this.templatePath('tasks/grunt/*.js'),
+          this.destinationPath(this.answers.grunt? 'tasks/gulp/*.js' : 'tasks/*.js'),
+          this.answers
+        );
+        this.fs.copyTpl
+        (
           this.templatePath('_gulpfile.js'),
           this.destinationPath('gulpfile.js'),
           this.answers
@@ -258,6 +264,12 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
       }
       if(this.answers.grunt)
       {
+        this.fs.copyTpl
+        (
+          this.templatePath('tasks/grunt/*.js'),
+          this.destinationPath(this.answers.gulp? 'tasks/grunt/*.js' : 'tasks/*.js'),
+          this.answers
+        );
         this.fs.copyTpl
         (
           this.templatePath('_gruntfile.js'),
