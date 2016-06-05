@@ -19,7 +19,7 @@ exports.appname = function(val){
 };
 
 exports.tstringify = function(val){
-  val = val.replace(/\s{1,}/g, ' ').trim().split(',').map(function(tag){
+  val = String(val).replace(/\s{1,}/g, ' ').trim().split(',').map(function(tag){
     return tag.trim();
   }).filter(function(tag){
     return tag.trim() !== '';
@@ -27,6 +27,8 @@ exports.tstringify = function(val){
   return JSON.stringify(val.length > 1? val : val[0]);
 };
 
-exports.hasFeature = function(val, feature){
-  return Array.isArray(val)? !!~val.indexOf(feature) : !!val[feature] || !!val;
+exports.hasFeature = function(scope, keys){
+  return String(keys).trim().split('|').some(function(feature){
+    return Array.isArray(scope)? !!~scope.indexOf(feature) : !!scope[feature] || !!scope;
+  });
 };
