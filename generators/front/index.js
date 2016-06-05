@@ -194,7 +194,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
     styles:function()
     {
     },
-    taskRunner:function()
+    taskRunners:function()
     {
     },
     package:function()
