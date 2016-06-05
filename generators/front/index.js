@@ -16,9 +16,9 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
 
   initializing:function(){
     this.on('end', this._onEnd);
+    this.answers = { date:(new Date).toISOString().split('T')[0] };
     this.pack = Utils.readJsonSync(path.join(__dirname, '../../package.json'));
     this.name = Utils.appname(this.name);
-    this.answers = {};
   },
 
   prompting:function(){
@@ -244,8 +244,24 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
     taskRunners:function()
     {
       if(!this.answers.useTaskRunner)return;
-      if(this.answers.gulp){}
-      if(this.answers.grunt){}
+      if(this.answers.gulp)
+      {
+        this.fs.copyTpl
+        (
+          this.templatePath('_gulpfile.js'),
+          this.destinationPath('gulpfile.js'),
+          this.answers.package
+        );
+      }
+      if(this.answers.grunt)
+      {
+        this.fs.copyTpl
+        (
+          this.templatePath('_gruntfile.js'),
+          this.destinationPath('gruntfile.js'),
+          this.answers.package
+        );
+      }
     },
     package:function()
     {
