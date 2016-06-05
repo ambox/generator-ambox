@@ -120,10 +120,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
       type:'confirm',
       name:'grunt',
       message:'Would you like to use Grunt?',
-      default:false,
-      when:function(answers){
-        return !answers.gulp;
-      }
+      default:false
     }], function(answers){
       this.answers.gulp = !!(answers.gulp);
       this.answers.grunt = !!(answers.grunt);
@@ -251,8 +248,8 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
       {
         this.fs.copyTpl
         (
-          this.templatePath('tasks/grunt/*.js'),
-          this.destinationPath(this.answers.grunt? 'tasks/gulp/*.js' : 'tasks/*.js'),
+          this.templatePath('tasks/grunt/'),
+          this.destinationPath(this.answers.grunt? 'tasks/gulp/' : 'tasks/'),
           this.answers
         );
         this.fs.copyTpl
@@ -266,8 +263,8 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
       {
         this.fs.copyTpl
         (
-          this.templatePath('tasks/grunt/*.js'),
-          this.destinationPath(this.answers.gulp? 'tasks/grunt/*.js' : 'tasks/*.js'),
+          this.templatePath('tasks/grunt/'),
+          this.destinationPath(this.answers.gulp? 'tasks/grunt/' : 'tasks/'),
           this.answers
         );
         this.fs.copyTpl
