@@ -18,16 +18,13 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
     this.on('end', this._onEnd);
     this.pack = Utils.readJsonSync(path.join(__dirname, '../../package.json'));
     this.name = Utils.appname(this.name);
-  },
-
-  messaging:function(){
-    if(!this.options['skip-message']){
-      this.log(yosay('Welcome to the wondrous '+ chalk.green('Ambox front-end project') +' generator!'));
-    }
+    this.answers = {};
   },
 
   prompting:function(){
-    this.answers = {};
+    if(!this.options['skip-message']){
+      this.log(yosay('Welcome to the wondrous '+ chalk.green('Ambox front-end project') +' generator!'));
+    }
   },
 
   ask4Scripts:function(){
@@ -66,6 +63,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
       this.answers.browserify = !!(answers.browserify);
       this.answers.es6 = !!(answers.es6);
       this.answers.ts = !!(answers.ts);
+      this.answers.useModuleLoader = Utils.hasFeature(this.answers, 'require|browserify|es6|ts');
       done();
     }.bind(this));
   },
@@ -97,6 +95,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
       this.answers.styl = !!(answers.styl);
       this.answers.sass = !!(answers.sass && answers.sass_syntax);
       this.answers.scss = !!(answers.sass && !answers.sass_syntax);
+      this.answers.useCSSPreProcessor = Utils.hasFeature(this.answers, 'styl|sass|scss');
       done();
     }.bind(this));
   },
@@ -119,6 +118,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
     }], function(answers){
       this.answers.gulp = !!(answers.gulp);
       this.answers.grunt = !!(answers.grunt);
+      this.answers.useTaskRunner = Utils.hasFeature(this.answers, 'grunt|gulp');
       done();
     }.bind(this));
   },
@@ -181,7 +181,6 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
       answers.repository = answers.repository;
       answers.author = answers.author;
       answers.license = answers.license;
-      answers.useTaskManager = this.answers.grunt || this.answers.gulp;
       this.answers.package = answers;
       done();
     }.bind(this));
