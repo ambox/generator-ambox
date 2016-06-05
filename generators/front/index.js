@@ -77,7 +77,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
     this.prompt([{
       type:'confirm',
       name:'browserify',
-      message:'Would you like to use ES6?',
+      message:'Would you like to use TypeScript?',
       default:false
     }], function(answers){
       this.answers.es6 = answers.es6;
@@ -110,7 +110,10 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
       type:'confirm',
       name:'idented',
       message:'Indentation-oriented syntax?',
-      default:false
+      default:false,
+      when:function(answers){
+        return answers.sass;
+      }
     }], function(answers){
       this.answers.sass = answers.sass && answers.idented;
       this.answers.scss = answers.sass && !answers.idented;
