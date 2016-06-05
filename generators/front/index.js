@@ -243,14 +243,17 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
     },
     taskRunners:function()
     {
-      if(!this.answers.useTaskRunner)return;
+      if(!this.answers.useTaskRunner)
+      {
+        return;
+      }
       if(this.answers.gulp)
       {
         this.fs.copyTpl
         (
           this.templatePath('_gulpfile.js'),
           this.destinationPath('gulpfile.js'),
-          this.answers.package
+          this.answers
         );
       }
       if(this.answers.grunt)
@@ -259,7 +262,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
         (
           this.templatePath('_gruntfile.js'),
           this.destinationPath('gruntfile.js'),
-          this.answers.package
+          this.answers
         );
       }
     },
@@ -269,7 +272,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
       (
         this.templatePath('_package.json'),
         this.destinationPath('package.json'),
-        this.answers.package
+        this.answers
       );
     }
   },

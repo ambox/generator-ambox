@@ -1,11 +1,11 @@
 {
-  "name": "<%= name %>",
-  "author": "<%= author %>",
-  "version": "<%= version %>",
-  "description": "<%= description %>",
-  "repository": "<%= repository %>"<% if(entry_point){ %>,
-  "main": <%- entry_point %><% } %>,
-  "license": "<%= license %>",
+  "name": "<%= package.name %>",
+  "author": "<%= package.author %>",
+  "version": "<%= package.version %>",
+  "description": "<%= package.description %>",
+  "repository": "<%= package.repository %>"<% if(package.entry_point){ %>,
+  "main": <%- package.entry_point %><% } %>,
+  "license": "<%= package.license %>",
   "scripts": {
     "bower": "node_modules/bower/bin/bower",
     "start": "npm cache clean && npm install && gulp watch",
