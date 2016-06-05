@@ -163,6 +163,11 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
       },
       {
         type:'input',
+        name:'keywords',
+        message:'keywords:'
+      },
+      {
+        type:'input',
         name:'author',
         message:'author:',
         default:'Adrian C. Miranda'
@@ -179,6 +184,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
       answers.description = answers.description;
       answers.main = Utils.tstringify(answers.main);
       answers.repository = answers.repository;
+      answers.keywords = Utils.tstringify(answers.keywords);
       answers.author = answers.author;
       answers.license = answers.license;
       this.answers.package = answers;
