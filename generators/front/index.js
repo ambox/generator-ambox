@@ -248,7 +248,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
         this.fs.copyTpl
         (
           this.templatePath('styles/styl/'),
-          this.destinationPath('styles/'),
+          this.destinationPath('source/styles/'),
           this.answers
         );
       }
@@ -257,7 +257,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
         this.fs.copyTpl
         (
           this.templatePath('styles/sass/'),
-          this.destinationPath('styles/'),
+          this.destinationPath('source/styles/'),
           this.answers
         );
       }
@@ -266,7 +266,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
         this.fs.copyTpl
         (
           this.templatePath('styles/scss/'),
-          this.destinationPath('styles/'),
+          this.destinationPath('source/styles/'),
           this.answers
         );
       }
@@ -307,7 +307,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
           this.answers
         );
       }
-      if(this.answers.rjs && !this.answers.taskrunner)
+      if(this.answers.rjs)
       {
         this.fs.copyTpl
         (
