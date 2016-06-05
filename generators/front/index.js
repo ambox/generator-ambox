@@ -224,15 +224,28 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
   {
     moduleLoader:function()
     {
+      if(!this.answers.useModuleLoader)return;
+      if(this.answers.requirejs){}
+      if(this.answers.rjs){}
+      if(this.answers.browserify){}
+      if(this.answers.ecmascript6){}
+      if(this.answers.typescript){}
     },
     scripts:function()
     {
     },
     styles:function()
     {
+      if(!this.answers.useCSSPreProcessor)return;
+      if(this.answers.styl){}
+      if(this.answers.sass){}
+      if(this.answers.scss){}
     },
     taskRunners:function()
     {
+      if(!this.answers.useTaskRunner)return;
+      if(this.answers.gulp){}
+      if(this.answers.grunt){}
     },
     package:function()
     {
