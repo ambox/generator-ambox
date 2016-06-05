@@ -188,6 +188,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
       answers.author = answers.author;
       answers.license = answers.license;
       this.answers.package = answers;
+      console.log('this.answers:', JSON.stringify(this.answers, null, 2));
       done();
     }.bind(this));
   },
@@ -205,20 +206,20 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
     },
     package:function()
     {
-      this.fs.copyTpl
-      (
-        this.templatePath('_package.json'),
-        this.destinationPath('package.json'),
-        this.answers.package
-      );
+      // this.fs.copyTpl
+      // (
+      //   this.templatePath('_package.json'),
+      //   this.destinationPath('package.json'),
+      //   this.answers.package
+      // );
     }
   },
 
   _onEnd:function(){
     if(!this.options['skip-install']){
-      console.log(chalk.green('Installing front-end dependencies for you....'));
-      console.log(chalk.yellow('This may take a couple minutes.'));
-      this.spawnCommand('npm', ['start'], { cwd:'./' });
+      // console.log(chalk.green('Installing front-end dependencies for you....'));
+      // console.log(chalk.yellow('This may take a couple minutes.'));
+      // this.spawnCommand('npm', ['start'], { cwd:'./' });
     }
   }
 });
