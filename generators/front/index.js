@@ -287,7 +287,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
         );
         this.fs.copyTpl
         (
-          this.templatePath('_gulpfile.js'),
+          this.templatePath('gulpfile.js'),
           this.destinationPath('gulpfile.js'),
           this.answers
         );
@@ -302,7 +302,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
         );
         this.fs.copyTpl
         (
-          this.templatePath('_gruntfile.js'),
+          this.templatePath('gruntfile.js'),
           this.destinationPath('gruntfile.js'),
           this.answers
         );
@@ -311,7 +311,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
       {
         this.fs.copyTpl
         (
-          this.templatePath('_r.js'),
+          this.templatePath('r.js'),
           this.destinationPath('r.js'),
           this.answers
         );
@@ -321,7 +321,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
     {
       this.fs.copyTpl
       (
-        this.templatePath('_package.json'),
+        this.templatePath('package.json'),
         this.destinationPath('package.json'),
         this.answers
       );
