@@ -188,8 +188,20 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
       answers.author = answers.author;
       answers.license = answers.license;
       this.answers.package = answers;
-      this.log(chalk.cyan.underline.bold('answers:'), JSON.stringify(this.answers, null, 2));
       done();
+    }.bind(this));
+  },
+
+  ask4Continue:function(){
+    var done = this.async();
+    this.log(chalk.cyan.underline.bold('Answers:\n'), JSON.stringify(this.answers, null, 2));
+    this.prompt([{
+      type:'input',
+      name:'continue',
+      message:'Is this ok?',
+      default:true
+    }], function(answers){
+      !!answers.continue && done();
     }.bind(this));
   },
 
@@ -197,6 +209,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
   {
     scripts:function()
     {
+      this.log('>>>>>>>>>>>>')
     },
     styles:function()
     {
