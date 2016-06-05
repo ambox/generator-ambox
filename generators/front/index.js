@@ -31,19 +31,58 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
   },
 
   ask4RequireJS:function(){
-    // var done = this.async();
+    var done = this.async();
+    this.prompt([{
+      type:'confirm',
+      name:'require',
+      message:'Would you like to use RequireJS?',
+      default:false
+    }], function(answers){
+      this.answers.require = answers.require;
+      done();
+    }.bind(this));
   },
 
   ask4Browserify:function(){
-    // var done = this.async();
+    if(this.answers.require)return;
+    var done = this.async();
+    this.prompt([{
+      type:'confirm',
+      name:'browserify',
+      message:'Would you like to use Browserify?',
+      default:false
+    }], function(answers){
+      this.answers.browserify = answers.browserify;
+      done();
+    }.bind(this));
   },
 
   ask4ES6:function(){
-    // var done = this.async();
+    if(this.answers.browserify || this.answers.require)return;
+    var done = this.async();
+    this.prompt([{
+      type:'confirm',
+      name:'browserify',
+      message:'Would you like to use ES6?',
+      default:false
+    }], function(answers){
+      this.answers.es6 = answers.es6;
+      done();
+    }.bind(this));
   },
 
   ask4TS:function(){
-    // var done = this.async();
+    if(this.answers.browserify || this.answers.require || this.answers.es6)return;
+    var done = this.async();
+    this.prompt([{
+      type:'confirm',
+      name:'browserify',
+      message:'Would you like to use ES6?',
+      default:false
+    }], function(answers){
+      this.answers.es6 = answers.es6;
+      done();
+    }.bind(this));
   },
 
   ask4Stylus:function(){
