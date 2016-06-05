@@ -124,7 +124,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
     }], function(answers){
       this.answers.gulp = !!(answers.gulp);
       this.answers.grunt = !!(answers.grunt);
-      this.answers.useTaskRunner = Utils.hasFeature(this.answers, 'grunt|gulp');
+      this.answers.useTaskRunner = Utils.hasFeature(this.answers, 'grunt|gulp|rjs');
       done();
     }.bind(this));
   },
@@ -271,6 +271,15 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
         (
           this.templatePath('_gruntfile.js'),
           this.destinationPath('gruntfile.js'),
+          this.answers
+        );
+      }
+      if(this.answers.rjs)
+      {
+        this.fs.copyTpl
+        (
+          this.templatePath('_r.js'),
+          this.destinationPath('r.js'),
           this.answers
         );
       }
