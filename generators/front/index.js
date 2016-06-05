@@ -30,6 +30,30 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
     this.answers = {};
   },
 
+  ask4RequireJS:function(){
+    // var done = this.async();
+  },
+
+  ask4Browserify:function(){
+    // var done = this.async();
+  },
+
+  ask4ES6:function(){
+    // var done = this.async();
+  },
+
+  ask4TS:function(){
+    // var done = this.async();
+  },
+
+  ask4Stylus:function(){
+    // var done = this.async();
+  },
+
+  ask4Sass:function(){
+    // var done = this.async();
+  },
+
   ask4Gulp:function(){
     var done = this.async();
     this.prompt([{
@@ -126,6 +150,9 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
     {
     },
     styles:function()
+    {
+    },
+    taskRunner:function()
     {
     },
     package:function()
