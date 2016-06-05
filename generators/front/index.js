@@ -104,7 +104,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
     }, {
       type:'confirm',
       name:'sass_syntax',
-      message:'Indentation-oriented syntax?',
+      message:'Would you like to use a indentation-oriented syntax?',
       default:false,
       when:function(answers){
         return answers.sass;
