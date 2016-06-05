@@ -3,8 +3,9 @@
   "author": "<%= author %>",
   "version": "<%= version %>",
   "description": "<%= description %>",
-  "main": <%= main %>,
-  "license": "ISC",
+  "repository": "<%= repository %>"<% if(main){ %>,
+  "main": <%- main %><% } %>,
+  "license": "<%= license %>",
   "scripts": {
     "bower": "node_modules/bower/bin/bower",
     "start": "npm cache clean && npm install && gulp watch",

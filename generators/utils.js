@@ -10,14 +10,23 @@ exports.readJsonSync = function(filepath, opts){
   return {};
 };
 
-exports.hasFeature = function(val, feature){
-  return Array.isArray(val)? !!~val.indexOf(feature) : !!val[feature] || !!val;
-};
-
-exports.appname = function(value){
-  if(typeof value === 'string'){
-    value = camelCase(value);
-    return value[0].toUpperCase() + value.substr(1);
+exports.appname = function(val){
+  if(typeof val === 'string'){
+    val = camelCase(val);
+    return val[0].toUpperCase() + val.substr(1);
   }
   return path.basename(process.cwd()).replace(/[^\w\s]+?/g, ' ');
+};
+
+exports.tstringify = function(val){
+  val = val.replace(/\s{1,}/g, ' ').trim().split(',').map(function(tag){
+    return tag.trim();
+  }).filter(function(tag){
+    return tag.trim() !== '';
+  });
+  return JSON.stringify(val.length > 1? val : val[0]);
+};
+
+exports.hasFeature = function(val, feature){
+  return Array.isArray(val)? !!~val.indexOf(feature) : !!val[feature] || !!val;
 };

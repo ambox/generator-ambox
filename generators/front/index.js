@@ -27,31 +27,115 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
   },
 
   prompting:function(){
-    var done = this.async();
-    var prompts = [
-      {
-        type:'input',
-        name:'dirname',
-        message:'...?\n',
-        default:'./'
-      }
-    ];
-    if(/^win/.test(process.platform)){
-      prompts = prompts.concat([
-      ]);
-    }else{
-      prompts.push({});
-    }
-    this.prompt(prompts, Proto.bind(function(answers){
-      if(/^win/.test(process.platform)){
-      }else{
-      }
-      done();
-    }, this));
+    this.answers = {};
   },
 
-  writing:{
-    scripts:function(){
+  ask4Gulp:function(){
+    var done = this.async();
+    this.prompt([{
+      type:'confirm',
+      name:'gulp',
+      message:'Would you like to use Gulp?',
+      default:false
+    }], function(answers){
+      this.answers.gulp = answers.gulp;
+      done();
+    }.bind(this));
+  },
+
+  ask4Grunt:function(){
+    var done = this.async();
+    this.prompt([{
+      type:'confirm',
+      name:'grunt',
+      message:'Would you like to use Grunt?',
+      default:false
+    }], function(answers){
+      this.answers.grunt = answers.grunt;
+      done();
+    }.bind(this));
+  },
+
+  ask4Package:function(){
+    var done = this.async();
+    this.log([
+      'This utility will walk you through creating a '+ chalk.gray('package.json') +' file.',
+      'It only covers the most common items, and tries to guess sensible defaults.', '',
+      'See '+ chalk.green('`npm help json`') +' for definitive documentation on these fields',
+      'and exactly what they do.', '',
+      'Use '+ chalk.green('`npm install <pkg> --save`') +' afterwards to install a package and',
+      'save it as a dependency in the '+ chalk.gray('package.json') +' file.'
+    ].join('\n'));
+    this.prompt([
+      {
+        type:'input',
+        name:'name',
+        message:'name:',
+        default:Utils.appname()
+      },
+      {
+        type:'input',
+        name:'version',
+        message:'version:',
+        default:this.pack.version
+      },
+      {
+        type:'input',
+        name:'description',
+        message:'description:'
+      },
+      {
+        type:'input',
+        name:'main',
+        message:'entry point:'
+      },
+      {
+        type:'input',
+        name:'repository',
+        message:'repository:'
+      },
+      {
+        type:'input',
+        name:'author',
+        message:'author:',
+        default:'Adrian C. Miranda'
+      },
+      {
+        type:'input',
+        name:'license',
+        message:'license:',
+        default:'ISC'
+      }
+    ], function(answers){
+      answers.name = answers.name;
+      answers.version = answers.version;
+      answers.description = answers.description;
+      answers.main = Utils.tstringify(answers.main);
+      answers.repository = answers.repository;
+      answers.author = answers.author;
+      answers.license = answers.license;
+      answers.useTaskManager = this.grunt || this.gulp;
+      this.answers.package = answers;
+      done();
+    }.bind(this));
+  },
+
+  writing:
+  {
+    scripts:function()
+    {
+    },
+    styles:function()
+    {
+    },
+    package:function()
+    {
+      this.fs.copyTpl
+      (
+        this.templatePath('_package.json'),
+        this.destinationPath('package.json'),
+        this.answers.package
+      );
     }
   },
 
