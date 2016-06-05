@@ -30,63 +30,47 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
     this.answers = {};
   },
 
-  ask4RequireJS:function(){
+  ask4Scripts:function(){
     var done = this.async();
     this.prompt([{
       type:'confirm',
       name:'require',
       message:'Would you like to use RequireJS?',
       default:false
-    }], function(answers){
-      this.answers.require = answers.require;
-      done();
-    }.bind(this));
-  },
-
-  ask4Browserify:function(){
-    if(this.answers.require)return;
-    var done = this.async();
-    this.prompt([{
+    }, {
       type:'confirm',
       name:'browserify',
       message:'Would you like to use Browserify?',
-      default:false
-    }], function(answers){
-      this.answers.browserify = answers.browserify;
-      done();
-    }.bind(this));
-  },
-
-  ask4ES6:function(){
-    if(this.answers.browserify || this.answers.require)return;
-    var done = this.async();
-    this.prompt([{
+      default:false,
+      when:function(answers){
+        return !answers.require;
+      }
+    }, {
       type:'confirm',
-      name:'browserify',
+      name:'es6',
       message:'Would you like to use ES6?',
-      default:false
-    }], function(answers){
-      this.answers.es6 = answers.es6;
-      done();
-    }.bind(this));
-  },
-
-  ask4TS:function(){
-    if(this.answers.browserify || this.answers.require || this.answers.es6)return;
-    var done = this.async();
-    this.prompt([{
+      default:false,
+      when:function(answers){
+        return !answers.require;
+      }
+    }, {
       type:'confirm',
-      name:'browserify',
+      name:'ts',
       message:'Would you like to use TypeScript?',
-      default:false
+      default:false,
+      when:function(answers){
+        return !answers.require;
+      }
     }], function(answers){
-      this.answers.es6 = answers.es6;
+      this.answers.require = !!(answers.require);
+      this.answers.browserify = !!(answers.browserify);
+      this.answers.es6 = !!(answers.es6);
+      this.answers.ts = !!(answers.ts);
       done();
     }.bind(this));
   },
 
   ask4Styles:function(){
-    if(this.answers.stylus)return;
     var done = this.async();
     this.prompt([{
       type:'confirm',
@@ -104,7 +88,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
     }, {
       type:'confirm',
       name:'sass_syntax',
-      message:'Would you like to use a indentation-oriented syntax?',
+      message:'Would you like to use a indentation-oriented syntax for Sass?',
       default:false,
       when:function(answers){
         return answers.sass;
@@ -117,28 +101,24 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
     }.bind(this));
   },
 
-  ask4Gulp:function(){
+  ask4TaskRunner:function(){
     var done = this.async();
     this.prompt([{
       type:'confirm',
       name:'gulp',
       message:'Would you like to use Gulp?',
       default:false
-    }], function(answers){
-      this.answers.gulp = answers.gulp;
-      done();
-    }.bind(this));
-  },
-
-  ask4Grunt:function(){
-    var done = this.async();
-    this.prompt([{
+    }, {
       type:'confirm',
       name:'grunt',
       message:'Would you like to use Grunt?',
-      default:false
+      default:false,
+      when:function(answers){
+        return !answers.gulp;
+      }
     }], function(answers){
-      this.answers.grunt = answers.grunt;
+      this.answers.gulp = !!(answers.gulp);
+      this.answers.grunt = !!(answers.grunt);
       done();
     }.bind(this));
   },
