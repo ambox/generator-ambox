@@ -85,38 +85,34 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
     }.bind(this));
   },
 
-  ask4Stylus:function(){
-    var done = this.async();
-    this.prompt([{
-      type:'confirm',
-      name:'stylus',
-      message:'Would you like to use Stylus?',
-      default:false
-    }], function(answers){
-      this.answers.stylus = answers.stylus;
-      done();
-    }.bind(this));
-  },
-
-  ask4Sass:function(){
+  ask4Styles:function(){
     if(this.answers.stylus)return;
     var done = this.async();
     this.prompt([{
       type:'confirm',
-      name:'sass',
-      message:'Would you like to use Sass?',
+      name:'styl',
+      message:'Would you like to use Stylus?',
       default:false
     }, {
       type:'confirm',
-      name:'idented',
+      name:'sass',
+      message:'Would you like to use Sass?',
+      default:false,
+      when:function(answers){
+        return !answers.styl;
+      }
+    }, {
+      type:'confirm',
+      name:'sass_syntax',
       message:'Indentation-oriented syntax?',
       default:false,
       when:function(answers){
         return answers.sass;
       }
     }], function(answers){
-      this.answers.sass = answers.sass && answers.idented;
-      this.answers.scss = answers.sass && !answers.idented;
+      this.answers.styl = !!(answers.styl);
+      this.answers.sass = !!(answers.sass && answers.sass_syntax);
+      this.answers.scss = !!(answers.sass && !answers.sass_syntax);
       done();
     }.bind(this));
   },
