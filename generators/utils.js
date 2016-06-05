@@ -30,6 +30,7 @@ exports.tstringify = function(val){
 exports.hasFeature = function(scope, keys){
   return String(keys).trim().split('|').some(function(feature){
     return Array.isArray(scope)? !!~scope.indexOf(feature) :
-    Object(scope) === scope? !!scope[feature] : !!scope;
+      Object(scope) === scope? !!scope[feature] : !!scope
+    ;
   });
 };
