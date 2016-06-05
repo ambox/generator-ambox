@@ -11,7 +11,7 @@ var path = require('path');
 var BackEndGenerator = new Proto(yogen.NamedBase, {
   constructor:function(args, options){
     this.super(args, options);
-    this.option('skip-message', { type:Boolean, desc:'Skip hello', defaults:false });
+    this.option('skip-message', { type:Boolean, desc:'Skips the welcome message', defaults:false });
   },
 
   initializing:function(){

@@ -11,7 +11,7 @@ var path = require('path');
 var FrontEndGenerator = new Proto(yogen.NamedBase, {
   constructor:function(args, options){
     this.super(args, options);
-    this.option('skip-message', { type:Boolean, desc:'Skip hello', defaults:false });
+    this.option('skip-message', { type:Boolean, desc:'Skips the welcome message', defaults:false });
   },
 
   initializing:function(){
@@ -114,7 +114,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
       answers.repository = answers.repository;
       answers.author = answers.author;
       answers.license = answers.license;
-      answers.useTaskManager = this.grunt || this.gulp;
+      answers.useTaskManager = this.answers.grunt || this.answers.gulp;
       this.answers.package = answers;
       done();
     }.bind(this));
