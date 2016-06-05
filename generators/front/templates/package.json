@@ -6,11 +6,28 @@
   "repository": "<%= package.repository %>"<% if(package.entry_point){ %>,
   "main": <%- package.entry_point %><% } %>,
   "license": "<%= package.license %>",
-  "scripts": {
+  "scripts": {<% if(taskrunner){ %>
     "bower": "node_modules/bower/bin/bower",
     "start": "npm cache clean && npm install && gulp watch",
     "postinstall": "npm run bower cache clean && npm run bower install && gulp bower",
-    "test": "gulp test"
+    "test": "gulp test"<% }else{ %>
+    "start": "npm run watch",
+    "clean": "rimraf *.log styles/*.css scripts/*bundle.js npm-debug.log",
+    "eslint": "eslint scripts/ --ignore-pattern 'scripts/bundle.js' --ignore-pattern 'scripts/vendors/*'",
+    "jshint": "jshint scripts/ --exclude scripts/bundle.js,scripts/vendors/",
+    "mocha": "mocha tests/",
+    "sass": "node-sass styles/ -o styles/ --output-style compressed -x",
+    "styl": "stylus styles/index.styl -o styles/index.css -c --disable-cache --prefix --sourcemap-inline",
+    "browserify": "browserify scripts/index.js | uglifyjs -mc warnings=false > scripts/bundle.js",
+    "prebuild": "parallelshell 'npm run jshint && npm run eslint' 'npm run clean -s'",
+    "build": "npm run browserify -s && npm run styl -s",
+    "postbuild": "postcss --use autoprefixer --autoprefixer.browsers '> 5%' -o styles/theme.css styles/theme.css",
+    "watch:mocha": "npm run mocha -- -w",
+    "watch:sass": "npm run sass -- -w",
+    "watch:styl": "npm run styl -- -u nib -w",
+    "watch:browserify": "watchify scripts/index.js -o scripts/bundle.js -v",
+    "watch": "parallelshell 'npm run watch:mocha -s' 'npm run watch:styl -s' 'npm run watch:browserify -s' 'npm run server -s'",
+    "server": "browser-sync start -s './' -f './' --index './index.html' --port 3000"<% } %>
   },
   "appDirs": {
     "index": "../",
