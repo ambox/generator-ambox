@@ -72,6 +72,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
       this.answers.browserify = !!(answers.browserify);
       this.answers.ecmascript6 = !!(answers.ecmascript6);
       this.answers.typescript = !!(answers.typescript);
+      this.answers.moduleloader = this.answers.requirejs + this.answers.browserify + this.answers.ecmascript6 + this.answers.typescript;
       this.answers.useModuleLoader = Utils.hasFeature(this.answers, 'requirejs|browserify|ecmascript6|typescript');
       done();
     }.bind(this));
@@ -104,6 +105,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
       this.answers.styl = !!(answers.styl);
       this.answers.sass = !!(answers.sass && answers.sass_syntax);
       this.answers.scss = !!(answers.sass && !answers.sass_syntax);
+      this.preprocessor = this.answers.styl + this.answers.sass + this.answers.scss;
       this.answers.useCSSPreProcessor = Utils.hasFeature(this.answers, 'styl|sass|scss');
       done();
     }.bind(this));
@@ -124,6 +126,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
     }], function(answers){
       this.answers.gulp = !!(answers.gulp);
       this.answers.grunt = !!(answers.grunt);
+      this.answers.taskrunner = this.answers.gulp + this.answers.grunt;
       this.answers.useTaskRunner = Utils.hasFeature(this.answers, 'grunt|gulp|rjs');
       done();
     }.bind(this));
@@ -221,7 +224,10 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
   {
     moduleLoader:function()
     {
-      if(!this.answers.useModuleLoader)return;
+      if(!this.answers.useModuleLoader)
+      {
+        return;
+      }
       if(this.answers.requirejs){}
       if(this.answers.rjs){}
       if(this.answers.browserify){}
@@ -233,10 +239,37 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
     },
     styles:function()
     {
-      if(!this.answers.useCSSPreProcessor)return;
-      if(this.answers.styl){}
-      if(this.answers.sass){}
-      if(this.answers.scss){}
+      if(!this.answers.useCSSPreProcessor)
+      {
+        return;
+      }
+      if(this.answers.styl)
+      {
+        this.fs.copyTpl
+        (
+          this.templatePath('styles/styl/'),
+          this.destinationPath('styles/'),
+          this.answers
+        );
+      }
+      if(this.answers.sass)
+      {
+        this.fs.copyTpl
+        (
+          this.templatePath('styles/sass/'),
+          this.destinationPath('styles/'),
+          this.answers
+        );
+      }
+      if(this.answers.scss)
+      {
+        this.fs.copyTpl
+        (
+          this.templatePath('styles/scss/'),
+          this.destinationPath('styles/'),
+          this.answers
+        );
+      }
     },
     taskRunners:function()
     {
@@ -274,7 +307,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
           this.answers
         );
       }
-      if(this.answers.rjs)
+      if(this.answers.rjs && !this.answers.taskrunner)
       {
         this.fs.copyTpl
         (
