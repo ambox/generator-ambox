@@ -27,7 +27,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
     }
   },
 
-  ask4Scripts:function(){
+  ask4ModuleLoader:function(){
     var done = this.async();
     this.prompt([{
       type:'confirm',
@@ -68,7 +68,7 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
     }.bind(this));
   },
 
-  ask4Styles:function(){
+  ask4PreProcessor:function(){
     var done = this.async();
     this.prompt([{
       type:'confirm',
@@ -153,8 +153,13 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
       },
       {
         type:'input',
-        name:'main',
+        name:'entry_point',
         message:'entry point:'
+      },
+      {
+        type:'input',
+        name:'test_command',
+        message:'test command:'
       },
       {
         type:'input',
@@ -182,7 +187,8 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
       answers.name = answers.name;
       answers.version = answers.version;
       answers.description = answers.description;
-      answers.main = Utils.tstringify(answers.main);
+      answers.entry_point = Utils.tstringify(answers.entry_point);
+      answers.test_command = answers.test_command;
       answers.repository = answers.repository;
       answers.keywords = [].concat(Utils.tstringify(answers.keywords));
       answers.author = answers.author;
@@ -207,9 +213,11 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
 
   writing:
   {
+    moduleLoader:function()
+    {
+    },
     scripts:function()
     {
-      this.log('>>>>>>>>>>>>')
     },
     styles:function()
     {
@@ -219,12 +227,12 @@ var FrontEndGenerator = new Proto(yogen.NamedBase, {
     },
     package:function()
     {
-      // this.fs.copyTpl
-      // (
-      //   this.templatePath('_package.json'),
-      //   this.destinationPath('package.json'),
-      //   this.answers.package
-      // );
+      this.fs.copyTpl
+      (
+        this.templatePath('_package.json'),
+        this.destinationPath('package.json'),
+        this.answers.package
+      );
     }
   },
 

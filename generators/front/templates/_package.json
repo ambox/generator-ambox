@@ -3,8 +3,8 @@
   "author": "<%= author %>",
   "version": "<%= version %>",
   "description": "<%= description %>",
-  "repository": "<%= repository %>"<% if(main){ %>,
-  "main": <%- main %><% } %>,
+  "repository": "<%= repository %>"<% if(entry_point){ %>,
+  "main": <%- entry_point %><% } %>,
   "license": "<%= license %>",
   "scripts": {
     "bower": "node_modules/bower/bin/bower",
