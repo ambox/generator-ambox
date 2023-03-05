@@ -77,3 +77,7 @@ If you'd like to get to know Yeoman better and meet some of his friends, [Grunt]
 ## License
 
 MIT
+
+<!-- references -->
+[next-boilerplate]: https://github.com/next-boilerplate/next-boilerplate
+[gluegun]: https://npmjs.com/package/gluegun
